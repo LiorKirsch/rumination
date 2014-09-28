@@ -27,7 +27,8 @@ FOLDERS = ('/Users/noampeled/Dropbox/postDocMoshe/rumination/MasonWordsSite/Maso
            '/home/liorlocal/workspace/MasonWordsSite/logs',
            )
 
-BASE_DIR = [f for f in FOLDERS if os.path.exists(f)][0]
+BASE_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)) ,'logs' )
+#BASE_DIR = [f for f in FOLDERS if os.path.exists(f)][0]
 HISTORY_LOGS_DIRS =  [os.path.join(BASE_DIR,historyFolder) for historyFolder in ['amt1','amt2','amt3']]
 
 PAGE_DEFAULT, PAGE_CONTROL, PAGE_CONTROL_NO_GAME = range(3)

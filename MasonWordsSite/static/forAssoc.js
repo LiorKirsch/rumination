@@ -76,7 +76,7 @@ function createFAT() {
 		wdiv.id = 'chain' + chain_index + '_div';
 		wdiv.className = 'words-chain';
 var inp = document.createElement('input');
-		$('<input>').attr('id','chain' + chain_index + '_w0').attr('type','text').attr('class','word_input').attr('readonly',true).attr('value', words[chain_index-1] ).appendTo($(wdiv));
+		$('<input class="word_input" readonly="readonly" type="text">').attr('id','chain' + chain_index + '_w0').attr('value', words[chain_index-1] ).appendTo($(wdiv));
 
 		createArrow(wdiv,'arrow' + chain_index + '_w0')
 		for (var word_index=1; word_index<=FREE_ASS_OPT_NUM; word_index++) {
@@ -87,10 +87,10 @@ var inp = document.createElement('input');
 		}
 		createArrow(wdiv,'arrow' + chain_index + '_w' + FREE_ASS_OPT_NUM);
 		
-		var selection = $('<select>').attr('id','sel' + chain_index).attr('class','selectpicker').append($('<option value="" disabled selected>Select your option</option>'));
+		var selection = $('<select>').attr('id','sel' + chain_index).attr('class','selectpicker').hide().append($('<option value="" disabled selected>Select your option</option>'));
 		var tmp_word;
 		for (word_index = 0; word_index < current_list_of_words.length; ++word_index) {
-		    selection.append( $('<option>').text( current_list_of_words[word_index] ) )
+		    selection.append( $('<option>').text( current_list_of_words[word_index] ).val(current_list_of_words[word_index]) )
 		}
 		$(wdiv).append(selection);
 
@@ -113,28 +113,42 @@ function showFirstChain() {
 	$('#chain1_div').fadeIn('slow', function() { 
 		blockKeyPress=false;
 		timerId = setInterval(timerMethod, 1000); 
+		setFocusOnCurrentWord();
 	});	
-//	setFocusOnCurrentWord();
 }
 
 function showNextChain() {
-	if (legalWords()) {
-		setWarningLabel("");
-		if (current_chain==FREE_ASS_QUES_NUM) {
-			saveToJSON();
-			$('#fat_main').fadeOut("slow", function () {
-				$('#submit').click();	
-			});
-		} else {
-			$('#chain' + current_chain + '_div').fadeOut("slow", function() {
-				current_word = 1;
-			    current_chain = current_chain+1;
-				$('#chain' + current_chain + '_div').fadeIn(function() { 
-					setFocusOnCurrentWord();
-					blockKeyPress=false;
-				});
-			});
-		}
+	if (legalWords() ) { 
+
+		// If this is the first time the selection element should still be hidden then show it
+		var selectElement = $('#sel' + current_chain);
+		if (selectElement.is(":visible")) {
+			if (forceSelectionMade()) {
+				setWarningLabel("");
+				if (current_chain==FREE_ASS_QUES_NUM) {
+					saveToJSON();
+					$('#fat_main').fadeOut("slow", function () {
+						$('#submit').click();	
+					});
+				} else {
+					$('#chain' + current_chain + '_div').fadeOut("slow", function() {
+						current_word = 1;
+					    current_chain = current_chain+1;
+						$('#chain' + current_chain + '_div').fadeIn(function() { 
+							setFocusOnCurrentWord();
+							blockKeyPress=false;
+						});
+					});
+				}
+			}
+			else{
+				blockKeyPress=false;
+			}
+		} else { 
+			$('#sel' + current_chain).fadeIn(function() { 
+						blockKeyPress=false;
+					}).focus();
+		     }
 	} else { 
 		blockKeyPress=false;
 	}
@@ -146,6 +160,16 @@ function emptyWords() {
 		if (word=="") { return true; }
 	}
 	return false;
+}
+
+function forceSelectionMade() {
+	var selectElm = $('#sel' + current_chain);
+	selectionMade = selectElm.val() != null
+	if (!selectionMade) {
+		setWarningLabel("You must choose a word");
+		selectElm.focus();
+	}
+	return selectionMade
 }
 
 function legalWords() {
@@ -176,7 +200,9 @@ function legalWord(word) {
 }
 
 function createArrow(div,id) {
-	createImage(div, id, 'pics/arrow.png', 'arrow_img')
+	$('<span class="glyphicon glyphicon-arrow-right"></span> ').appendTo( $(div) );;
+//	$('<img class="arrow_img" src="pics/arrow.png">').attr('id', id).appendTo( $(div) );
+	//createImage(div, id, 'pics/arrow.png', 'arrow_img')
 }
 
 function createInput(id,div,className) {
@@ -223,7 +249,7 @@ function wordAlreadyAppear(word) {
 	return false;
 }
 
-function createPrecursorInput(id,div,value) {	
+/*function createPrecursorInput(id,div,value) {	
 	var inp = document.createElement('input');
 	inp.id = id;
 	inp.type = 'text';
@@ -231,7 +257,7 @@ function createPrecursorInput(id,div,value) {
 	inp.readOnly = true;
 	inp.value = value;			
 	div.appendChild(inp);
-}
+}*/
 
 function createTimeLabel(chain_index,word_index,div) {
 	if (word_index==1) { time="0"; } else {	time="";}
