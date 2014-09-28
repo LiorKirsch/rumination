@@ -75,8 +75,8 @@ function createFAT() {
 		var wdiv = document.createElement('div');
 		wdiv.id = 'chain' + chain_index + '_div';
 		wdiv.className = 'words-chain';
-var inp = document.createElement('input');
-		$('<input class="word_input" readonly="readonly" type="text">').attr('id','chain' + chain_index + '_w0').attr('value', words[chain_index-1] ).appendTo($(wdiv));
+		var inp = document.createElement('input');
+		$('<input class="word_shown" readonly="readonly" type="text">').attr('id','chain' + chain_index + '_w0').attr('value', current_list_of_words[0] ).appendTo($(wdiv));
 
 		createArrow(wdiv,'arrow' + chain_index + '_w0')
 		for (var word_index=1; word_index<=FREE_ASS_OPT_NUM; word_index++) {
@@ -85,11 +85,12 @@ var inp = document.createElement('input');
 				createArrow(wdiv,'arrow' + chain_index + '_w' + word_index);
 			}
 		}
+
 		createArrow(wdiv,'arrow' + chain_index + '_w' + FREE_ASS_OPT_NUM);
 		
-		var selection = $('<select>').attr('id','sel' + chain_index).attr('class','selectpicker').hide().append($('<option value="" disabled selected>Select your option</option>'));
+		var selection = $('<select>').attr('id','sel' + chain_index).attr('class','selectpicker').hide().append($('<option value="" disabled selected>Select the closest word</option>'));
 		var tmp_word;
-		for (word_index = 0; word_index < current_list_of_words.length; ++word_index) {
+		for (word_index = 1; word_index < current_list_of_words.length; ++word_index) {
 		    selection.append( $('<option>').text( current_list_of_words[word_index] ).val(current_list_of_words[word_index]) )
 		}
 		$(wdiv).append(selection);
@@ -148,6 +149,7 @@ function showNextChain() {
 			$('#sel' + current_chain).fadeIn(function() { 
 						blockKeyPress=false;
 					}).focus();
+			current_word += 1;
 		     }
 	} else { 
 		blockKeyPress=false;
@@ -261,7 +263,7 @@ function wordAlreadyAppear(word) {
 
 function createTimeLabel(chain_index,word_index,div) {
 	if (word_index==1) { time="0"; } else {	time="";}
-	createLabel('time' + chain_index + '_w' + word_index, div, time,'word_input');
+	createLabel('time' + chain_index + '_w' + word_index, div, time,'time_input');
 	createImage(div, '', 'pics/empty.png', 'arrow_img')
 }
 
@@ -307,12 +309,18 @@ function saveToJSON() {
     jsonObj = [];
     $("div[class=words-chain]").each(function() {
     	var chain = {};
-    	chain["words"] = [];
+   	chain["words"] = [];
     	chain["times"] = [];
-    	$(this).find("input[class=word_input]").each(function() { 
+	$(this).find(".word_shown").each(function() { 
 	        chain["words"].push($(this).val());
     	});
-    	$(this).find("label[class=word_input]").each(function() { 
+    	$(this).find(".word_input").each(function() { 
+	        chain["words"].push($(this).val());
+    	});
+    	$(this).find(".selectpicker").each(function() { 
+	        chain["words"].push($(this).val());
+    	});
+    	$(this).find(".time_input").each(function() { 
 	        chain["times"].push($(this)[0].innerHTML);
     	});
     	jsonObj.push(chain);

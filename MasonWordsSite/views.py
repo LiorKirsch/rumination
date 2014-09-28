@@ -21,11 +21,10 @@ import StringIO
 import inspect
 from path3 import path
 
-FOLDERS = ('/Users/noampeled/Dropbox/postDocMoshe/rumination/MasonWordsSite/MasonWordsSite/logs/', 
-           '/home/noam/Dropbox/postDocMoshe/rumination/MasonWordsSite/MasonWordsSite/logs/',
-           '/home/liorkirsch/webapps/masonwords/MasonWordsSite/logs',
-           '/home/liorlocal/workspace/MasonWordsSite/logs',
-           )
+#FOLDERS = ('/Users/noampeled/Dropbox/postDocMoshe/rumination/MasonWordsSite/MasonWordsSite/logs/', 
+#           '/home/noam/Dropbox/postDocMoshe/rumination/MasonWordsSite/MasonWordsSite/logs/',
+#           '/home/liorkirsch/webapps/masonwords/MasonWordsSite/logs',
+#           )
 
 BASE_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)) ,'logs' )
 #BASE_DIR = [f for f in FOLDERS if os.path.exists(f)][0]
