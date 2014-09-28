@@ -2,10 +2,10 @@ from django.http import HttpResponseRedirect, HttpResponse, HttpResponseServerEr
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 from django.contrib.auth import logout
-from django.utils import simplejson 
+# from django.utils import simplejson 
 from django.views.decorators.csrf import csrf_exempt
 from django.core.servers.basehttp import FileWrapper
-
+import json
 
 from random import randrange
 from django.conf import settings
@@ -23,7 +23,10 @@ from path3 import path
 
 FOLDERS = ('/Users/noampeled/Dropbox/postDocMoshe/rumination/MasonWordsSite/MasonWordsSite/logs/', 
            '/home/noam/Dropbox/postDocMoshe/rumination/MasonWordsSite/MasonWordsSite/logs/',
-           '/home/liorkirsch/webapps/masonwords/MasonWordsSite/logs')
+           '/home/liorkirsch/webapps/masonwords/MasonWordsSite/logs',
+           '/home/liorlocal/workspace/MasonWordsSite/logs',
+           )
+
 BASE_DIR = [f for f in FOLDERS if os.path.exists(f)][0]
 HISTORY_LOGS_DIRS =  [os.path.join(BASE_DIR,historyFolder) for historyFolder in ['amt1','amt2','amt3']]
 
@@ -279,14 +282,13 @@ def getWordsListsFromFile(file_name,wordsInChain):
 def generateRandomString(N):
     return ''.join(random.choice(string.ascii_letters + string.digits) for _ in range(N))
     
-    
+
 def sendObjectAsJson(myObjectDict):
-    data = simplejson.dumps(myObjectDict, indent=4) 
-    #print 'returning: %s' % data
-    resp = HttpResponse(data, mimetype='application/json')
+    data = json.dumps(myObjectDict, indent=4)
+    resp = HttpResponse(data, content_type='application/json')
     resp['Access-Control-Allow-Headers'] = '*'
     return resp
-
+    
     
 def get_client_ip(request):
     x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')

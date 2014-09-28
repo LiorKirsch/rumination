@@ -17,7 +17,7 @@ $( document ).ready(function() {
 	$('#submit').hide();
 	$('#next').click(showFirstChain);
 	getWords();
-	//getWordsDic();
+	getWordsDic();
 });
 
 function getWords() {
@@ -71,11 +71,13 @@ function timerMethod() {
 function createFAT() {
 	var formElm = document.getElementById('fat_form');
 	for (var chain_index=1;chain_index<=FREE_ASS_QUES_NUM;chain_index++) {
+		var current_list_of_words = list_of_words[chain_index];
 		var wdiv = document.createElement('div');
 		wdiv.id = 'chain' + chain_index + '_div';
 		wdiv.className = 'words-chain';
-	
-		createPrecursorInput('chain' + chain_index + '_w0', wdiv, words[chain_index-1]);
+var inp = document.createElement('input');
+		$('<input>').attr('id','chain' + chain_index + '_w0').attr('type','text').attr('class','word_input').attr('readonly',true).attr('value', words[chain_index-1] ).appendTo($(wdiv));
+
 		createArrow(wdiv,'arrow' + chain_index + '_w0')
 		for (var word_index=1; word_index<=FREE_ASS_OPT_NUM; word_index++) {
 			createInput('chain' + chain_index + '_w' + word_index, wdiv, 'word_input');
@@ -83,8 +85,15 @@ function createFAT() {
 				createArrow(wdiv,'arrow' + chain_index + '_w' + word_index);
 			}
 		}
-		createArrow(wdiv,'arrow' + chain_index + '_w' + FREE_ASS_OPT_NUM)
-		createDropDown(wdiv,'sel' + chain_index, list_of_words[chain_index]);
+		createArrow(wdiv,'arrow' + chain_index + '_w' + FREE_ASS_OPT_NUM);
+		
+		var selection = $('<select>').attr('id','sel' + chain_index).attr('class','selectpicker').append($('<option value="" disabled selected>Select your option</option>'));
+		var tmp_word;
+		for (word_index = 0; word_index < current_list_of_words.length; ++word_index) {
+		    selection.append( $('<option>').text( current_list_of_words[word_index] ) )
+		}
+		$(wdiv).append(selection);
+
 		wdiv.appendChild(document.createElement('br'))
 		for (var word_index=0 ; word_index<=FREE_ASS_OPT_NUM+1; word_index++) {
 			createTimeLabel(chain_index,word_index, wdiv)
@@ -104,8 +113,8 @@ function showFirstChain() {
 	$('#chain1_div').fadeIn('slow', function() { 
 		blockKeyPress=false;
 		timerId = setInterval(timerMethod, 1000); 
-	});	  
-	setFocusOnCurrentWord();
+	});	
+//	setFocusOnCurrentWord();
 }
 
 function showNextChain() {

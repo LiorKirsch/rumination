@@ -3,3 +3,5 @@
 *.vw
 *.cache
 *.lprof
+
+__MACOSX/
