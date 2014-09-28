@@ -1,0 +1,251 @@
+<html>
+<head>
+    <script src="js/jquery.min.js"></script>	
+	<script src="js/underscore-min.js"></script>
+	<script src="js/bigtext.js"></script>
+	<script src="js/validatious.min.js"></script>  
+
+	<link rel="stylesheet" type="text/css" href="displaywords.css">
+	
+	<!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-theme.css" rel="stylesheet">
+    <link href="css/prettify.css">
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/bootstrap.js"></script>
+	<script src="js/prettify.js"></script>
+	
+  
+      <style type="text/css">
+		.center_div{
+	    	position: absolute;
+	   		top: 10%;
+	  	  	left: 50%;
+	   		margin-top: 10px;
+	  		margin-left: -300px;
+	    	width: 1000px;
+	    	height: 400px;
+		},
+	      ul.messages {
+	        list-style-type: none;
+	        padding: 0;
+	        margin: -15px 0 0 0;
+	      }
+
+	      .error ul.messages li {
+	        color: red;
+	        padding: 0;
+	        margin: -15px;
+	      }
+      </style>
+</head>
+
+<body>
+<div id="rumination_form" class="center_div">
+<h2> Please answer the following questions </h2>
+<form id="rumination_form" action="/save_rumination/" method="post" class="validate">
+  <div class="control-group">
+    <label for="Q1RB">Think &ldquo;What am I doing to deserve this?&ldquo;</label>
+    <div class="form-inline">
+      <label for="Q1RB" class="radio">
+        <input id="Q1RB" type="radio" name="Q1RB" value="Almost never"  > Almost never 
+      </label>
+      <label for="Q1RB" class="radio">
+        <input id="Q1RB" type="radio" name="Q1RB" value="Sometimes"> Sometimes 
+      </label>
+	  <label for="Q1RB" class="radio">
+        <input id="Q1RB" type="radio" name="Q1RB" value="Often"> Often 
+      </label>
+	  <label for="Q1RB" class="radio">
+        <input id="Q1RB" type="radio" name="Q1RB" value="Almost always" class="required" title="you must choose one!"> Almost always 
+      </label>
+    </div>
+  </div>
+<br>
+
+ <div class="control-group">
+    <label for="Q2RB">Analyse recent events to try to understand why you are depressed</label>
+    <div class="form-inline">  
+      <label for="Q2RB" class="radio">
+        <input id="Q2RB" type="radio" name="Q2RB" value="Almost never" class="required" title="you must choose one!"> Almost never
+      </label>
+      <label for="Q2RB" class="radio">
+        <input id="Q2RB" type="radio" name="Q2RB" value="Sometimes"> Sometimes
+      </label>
+	  <label for="Q2RB" class="radio">
+        <input id="Q2RB" type="radio" name="Q2RB" value="Often"> Often
+      </label>
+	  <label for="Q2RB" class="radio">
+        <input id="Q2RB" type="radio" name="Q2RB" value="Almost always"> Almost always
+      </label>
+    </div>  
+  </div>
+<br>
+
+  <div class="control-group">
+    <label for="Q3RB"> Think &ldquo;Why do I always react this way?&rdquo;</label>
+  	<div class="form-inline">    
+      <label for="Q3RB" class="radio">
+        <input id="Q3RB" type="radio" name="Q3RB" value="Almost never" class="required" title="you must choose one!"> Almost never
+      </label>
+      <label for="Q3RB" class="radio">
+        <input id="Q3RB" type="radio" name="Q3RB" value="Sometimes"> Sometimes
+      </label>
+	  <label for="Q3RB" class="radio">
+        <input id="Q3RB" type="radio" name="Q3RB" value="Often"> Often
+      </label>
+	  <label for="Q3RB" class="radio">
+        <input id="Q3RB" type="radio" name="Q3RB" value="Almost always"> Almost always
+      </label>
+    </div>  
+  </div>
+<br>
+
+   <div class="control-group">
+    <label for="Q4RB"> Go away by yourself and think about why you feel this way</label>
+    <div class="form-inline">
+      <label for="Q4RB" class="radio">
+        <input id="Q4RB" type="radio" name="Q4RB" value="Almost never" class="required" title="you must choose one!"> Almost never
+      </label>
+      <label for="Q4RB" class="radio">
+        <input id="Q4RB" type="radio" name="Q4RB" value="Sometimes"> Sometimes
+      </label>
+	  <label for="Q4RB" class="radio">
+        <input id="Q4RB" type="radio" name="Q4RB" value="Often"> Often
+      </label>
+	  <label for="Q4RB" class="radio">
+        <input id="Q4RB" type="radio" name="Q4RB" value="Almost always"> Almost always
+      </label>
+    </div>  
+  </div>
+<br>
+
+   <div class="control-group">
+    <label for="Q5RB"> Write down what you are thinking and analyse it</label>
+      <div class="form-inline">
+      <label for="Q5RB" class="radio">
+        <input id="Q5RB" type="radio" name="Q5RB" value="Almost never" class="required" title="you must choose one!"> Almost never
+      </label>
+      <label for="Q5RB" class="radio">
+        <input id="Q5RB" type="radio" name="Q5RB" value="Sometimes"> Sometimes
+      </label>
+	  <label for="Q5RB" class="radio">
+        <input id="Q5RB" type="radio" name="Q5RB" value="Often"> Often
+      </label>
+	  <label for="Q5RB" class="radio">
+        <input id="Q5RB" type="radio" name="Q5RB" value="Almost always"> Almost always
+      </label>
+    </div>  
+  </div>
+<br>
+
+  <div class="control-group">
+    <label for="Q6RB"> Think about a recent situation, wishing it had gone better</label>
+      <div class="form-inline">
+      <label for="Q6RB" class="radio">
+        <input id="Q6RB" type="radio" name="Q6RB" value="Almost never" class="required" title="you must choose one!"> Almost never
+      </label>
+      <label for="Q6RB" class="radio">
+        <input id="Q6RB" type="radio" name="Q6RB" value="Sometimes"> Sometimes
+      </label>
+	  <label for="Q6RB" class="radio">
+        <input id="Q6RB" type="radio" name="Q6RB" value="Often"> Often
+      </label>
+	  <label for="Q6RB" class="radio">
+        <input id="Q6RB" type="radio" name="Q6RB" value="Almost always"> Almost always
+      </label>
+    </div>  
+  </div>
+<br>
+
+  <div class="control-group">
+    <label for="Q7RB"> Think &ldquo;Why do I have problems other people don&rsquo;t have?&ldquo;</label>
+      <div class="form-inline">
+      <label for="Q7RB" class="radio">
+        <input id="Q7RB" type="radio" name="Q7RB" value="Almost never" class="required" title="you must choose one!"> Almost never
+      </label>
+      <label for="Q7RB" class="radio">
+        <input id="Q7RB" type="radio" name="Q7RB" value="Sometimes"> Sometimes
+      </label>
+	  <label for="Q7RB" class="radio">
+        <input id="Q7RB" type="radio" name="Q7RB" value="Often"> Often
+      </label>
+	  <label for="Q7RB" class="radio">
+        <input id="Q7RB" type="radio" name="Q7RB" value="Almost always"> Almost always
+      </label>
+    </div>  
+  </div>
+<br>
+
+  <div class="control-group">
+    <label for="Q8RB">  Think &ldquo;Why can&rsquo;t I handle things better&ldquo;</label>
+      <div class="form-inline">
+      <label for="Q8RB" class="radio">
+        <input id="Q8RB" type="radio" name="Q8RB" value="Almost never" class="required" title="you must choose one!"> Almost never
+      </label>
+      <label for="Q8RB" class="radio">
+        <input id="Q8RB" type="radio" name="Q8RB" value="Sometimes"> Sometimes
+      </label>
+	  <label for="Q8RB" class="radio">
+        <input id="Q8RB" type="radio" name="Q8RB" value="Often"> Often
+      </label>
+	  <label for="Q8RB" class="radio">
+        <input id="Q8RB" type="radio" name="Q8RB" value="Almost always"> Almost always
+      </label>
+    </div>  
+  </div>
+<br>
+
+   <div class="control-group">
+    <label for="Q9RB">  Analyse your personality to try to understand why you are depressed</label>
+      <div class="form-inline">
+      <label for="Q9RB" class="radio">
+        <input id="Q9RB" type="radio" name="Q9RB" value="Almost never" class="required" title="you must choose one!"> Almost never
+      </label>
+      <label for="Q9RB" class="radio">
+        <input id="Q9RB" type="radio" name="Q9RB" value="Sometimes"> Sometimes
+      </label>
+	  <label for="Q9RB" class="radio">
+        <input id="Q9RB" type="radio" name="Q9RB" value="Often"> Often
+      </label> 
+	  <label for="Q9RB" class="radio">
+        <input id="Q9RB" type="radio" name="Q9RB" value="Almost always"> Almost always
+      </label>
+    </div>  
+  </div>
+<br>
+
+  <div class="control-group">
+    <label for="Q10RB">  Go someplace alone to think about your feelings</label>
+      <div class="form-inline">
+      <label for="Q10RB" class="radio">
+        <input id="Q10RB" type="radio" name="Q10RB" value="Almost never" class="required" title="you must choose one!"> Almost never
+      </label>
+      <label for="Q10RB" class="radio">
+        <input id="Q10RB" type="radio" name="Q10RB" value="Sometimes"> Sometimes
+      </label>
+	  <label for="Q10RB" class="radio">
+        <input id="Q10RB" type="radio" name="Q10RB" value="Often"> Often
+      </label>
+	  <label for="Q10RB" class="radio">
+        <input id="Q10RB" type="radio" name="Q10RB" value="Almost always"> Almost always
+      </label>
+    </div>  
+  </div>
+ <br>
+<input type="submit" name="next" id="next" value="Continue" class="btn btn-primary">  
+  
+</form>
+</div>
+</div>
+
+<!--script type="text/javascript" src="validatious.min.js"></script>  
+<script type="text/javascript">
+      v2.Field.prototype.instant = true; 
+      $("next").click(function() {
+        var validate = v2.Form.forms['rumination_form'].validate()
+        })
+</script -->
+        
+</body>
+</html>

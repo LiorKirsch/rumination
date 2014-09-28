@@ -1,0 +1,78 @@
+<html>
+<head>
+   <script src="js/jquery.min.js"></script>	
+	<script src="js/underscore-min.js"></script>
+	<script src="js/validatious.min.js"></script>  
+	
+	<!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-theme.css" rel="stylesheet">
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/bootstrap.js"></script>
+
+
+    <style type="text/css">
+      ul.messages {
+        list-style-type: none;
+        padding: 0;
+        margin: 15px 0 0 0;
+      }
+
+      .error ul.messages li {
+        color: red;
+        padding: 0;
+        margin: 0;
+      }
+      	
+      	textarea {  
+	    		resize: none;
+	    }
+	 
+	
+	.center_div{
+	    position: absolute;
+	    top: 15%;
+	    left: 50%;
+	    margin-top: 0px;
+	    margin-left: -300px;
+	    width: 1000px;
+	    height: 400px;
+	},	
+	
+	</style>
+</head>
+<body>
+
+<div id="feedback_div" class="center_div">
+<h2>Please give us some feedback regarding the questionnaire</h2>
+<form id="feedback_form" action="/postFeedback/" class="validate" method="post">
+    
+ <br>		
+  <div class="control-group">
+    <label class="control-label">How difficult were the words for you? (1 = easy, 5 = difficult)</label>
+      <div class="controls">
+      	<select id="difficulty" class="required" name="difficulty" title="you must choose one!">
+      	    <option value="">Select a number </option>
+	        <option value="1">1</option>
+	        <option value="2">2</option>
+	        <option value="3">3</option>
+	        <option value="4">4</option>
+	        <option value="5">5</option>
+	      
+        </select>       
+      </div>
+  </div>
+<br>
+ <div class="control-group">
+    <label class="control-label" for="notes">Do you have any suggestions or notes regarding the questionnaire?</label>
+      <div class="controls">
+        <textarea  id="notes" name='notes' cols="73" rows="3"></textarea>
+      </div>
+  </div>
+ <br>
+ <button type="submit" class="btn btn-primary">Continue</button>
+
+  </form>
+</div>
+</body>
+</html>

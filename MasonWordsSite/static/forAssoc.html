@@ -1,0 +1,41 @@
+<html>
+<head>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jszip.js"></script>
+    <script src="js/jszip-utils.js"></script>	
+	<script src="utils.js"></script>
+	<script src="forAssoc.js"></script>
+
+	<!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-theme.css" rel="stylesheet">
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/bootstrap.js"></script>
+	
+  	<link href="forAssoc.css" rel="stylesheet"> 
+</head>
+
+<body>
+<div id="fat_main" class="center_div">
+<div id="fat_title"><h2> Please write the first association for the word you are about to see. <br>
+Then do the same for the word you wrote down and so on. <br></h2>
+<h3><font color="red">Please do it as fast as you can.</font> Write the first word that has crossed your mind.<br>
+Use the "Tab" to move from one word to the next, <br>
+and the "Enter" to continue to the next chain.
+</h3>
+<br></div>
+<div id='selectDiv'>
+</div>
+
+
+<form id="fat_form" action="/save_fat/" method="post" class="validate">
+<input type="hidden" name="data" id="data"/>
+<input type="submit" name="submit" id="submit" value="Continue" class="btn btn-primary">  
+</form>
+<br>
+<input name="next" id="next" value="Start" class="btn btn-primary" style="margin-left: 300px" readOnly='true'>  
+<br><br><br>
+<label id="warning_lbl" class="warning"></label>
+</div>
+</body>
+</html>

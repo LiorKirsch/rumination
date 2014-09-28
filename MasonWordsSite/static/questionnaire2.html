@@ -1,0 +1,89 @@
+<html>
+<head>
+    <script src="js/jquery.min.js"></script>	
+	<script src="js/underscore-min.js"></script>
+	<script src="js/bigtext.js"></script>
+	<script src="js/validatious.min.js"></script>  
+	<script src="js/sprintf.min.js"></script>
+	<script src="questionnaire2.js"></script>
+	<script src="utils.js"></script>
+	<script src='js/jquery.waituntilexists.js'></script>
+
+	<link rel="stylesheet" type="text/css" href="displaywords.css">
+		
+	<!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-theme.css" rel="stylesheet">
+    <link href="css/prettify.css">
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/bootstrap.js"></script>
+	<script src="js/prettify.js"></script>
+	
+	<!-- bin/jquery.slider.min.css -->
+	<link rel="stylesheet" href="css/slider/jslider.css" type="text/css">
+	
+	<!-- bin/jquery.slider.min.js -->
+	<script type="text/javascript" src="js/slider/jshashtable-2.1_src.js"></script>
+	<script type="text/javascript" src="js/slider/jquery.numberformatter-1.2.3.js"></script>
+	<script type="text/javascript" src="js/slider/tmpl.js"></script>
+	<script type="text/javascript" src="js/slider/jquery.dependClass-0.1.js"></script>
+	<script type="text/javascript" src="js/slider/draggable-0.1.js"></script>
+	<script type="text/javascript" src="js/slider/jquery.slider.js"></script>
+	
+  
+      <style type="text/css">
+           
+		.center_div {
+	    	position: absolute;
+	   		top: 10%;
+	  	  	left: 50%;
+	   		margin-top: 10px;
+	  		margin-left: -300px;
+	    	width: 700px;
+	    	height: 400px;
+		}
+		
+	   	textarea { 
+	    		border: none; 
+	    		resize: none;
+	    		width: 25em;
+	    		overflow: hidden;
+	    }
+	 
+			    
+        ul.messages {
+	        list-style-type: none;
+	        padding: 0;
+	        margin: -15px 0 0 0;
+	    }
+
+	    .error ul.messages li {
+	        color: red;
+	        padding: 0;
+	        margin: -15px;
+	    }
+	    
+	    .slider_span {
+	    	display: inline-block; 
+	    	width: 400px; 
+	    	padding: 0 5px;
+	    }
+      </style>
+</head>
+
+<body>
+<div id="rumination_div" class="center_div">
+<div id="rumination_title"><h2>In the following ten questions you'll be asked about how you feel <font color="red">right now</font>.<br><br>Please answer them carefully. <br><br></h2></div>
+<div id="questions_header" style="position:absolute"><h2>To what extent do you feel: <br> </h2></div>
+<form id="rumination_form" action="/postRuminationTest/" method="post" class="validate">
+<span id='afterQuestionsBreak'></span>
+
+<br>
+<input type="submit" name="submit" id="submit" value="Continue" class="btn btn-primary">   
+</form>
+<input name="start" id="start" value="Start" class="btn btn-primary" style="margin-left: 200px">  
+<input name="next" id="next" value="Next question" class="btn btn-primary" style="margin-left: 235px">
+</div>
+
+</body>
+</html>

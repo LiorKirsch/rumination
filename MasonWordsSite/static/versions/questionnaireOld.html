@@ -1,0 +1,71 @@
+<html>
+<head>
+    <script src="js/jquery.min.js"></script>	
+	<script src="js/underscore-min.js"></script>
+	<script src="js/bigtext.js"></script>
+	<script src="js/validatious.min.js"></script>  
+	<script src="js/sprintf.min.js"></script>
+	<script src="questionnaire.js"></script>
+	<script src="utils.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="displaywords.css">
+	
+	<!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-theme.css" rel="stylesheet">
+    <link href="css/prettify.css">
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/bootstrap.js"></script>
+	<script src="js/prettify.js"></script>
+	
+  
+      <style type="text/css">
+           
+		.center_div {
+	    	position: absolute;
+	   		top: 10%;
+	  	  	left: 50%;
+	   		margin-top: 10px;
+	  		margin-left: -300px;
+	    	width: 1000px;
+	    	height: 400px;
+		}
+		
+	   	textarea { 
+	    		border: none; 
+	    		resize: none;
+	    		width: 25em;
+	    		overflow: hidden;
+	    }
+	 
+			    
+        ul.messages {
+	        list-style-type: none;
+	        padding: 0;
+	        margin: -15px 0 0 0;
+	    }
+
+	    .error ul.messages li {
+	        color: red;
+	        padding: 0;
+	        margin: -15px;
+	    }
+      </style>
+</head>
+
+<body>
+<div id="rumination_div" class="center_div">
+<div id="rumination_title"><h2> The following sentences describe actions <br><br>
+Please choose carefully how often do you tend <br>
+to perform each action </h2></div>
+<form id="rumination_form" action="/postRuminationTest/" method="post" class="validate">
+<br id="afterQuestionsBreak">
+<input type="submit" name="submit" id="submit" value="Continue" class="btn btn-primary">   
+</form>
+<input name="start" id="start" value="Start" class="btn btn-primary" style="margin-left: 200px">  
+<input name="next" id="next" value="Next question" class="btn btn-primary">  
+</div>
+</div>
+
+</body>
+</html>

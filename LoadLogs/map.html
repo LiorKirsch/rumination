@@ -1,0 +1,744 @@
+
+        <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+        <html xmlns="http://www.w3.org/1999/xhtml">
+        <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+        <title></title>
+        
+<script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAAQQRAsOk3uqvy3Hwwo4CclBTrVPfEE8Ms0qPwyRfPn-DOTlpaLBTvTHRCdf2V6KbzW7PZFYLT8wFD0A" type="text/javascript"></script>
+        <script type="text/javascript">
+        //<![CDATA[
+        function load() {
+            if (GBrowserIsCompatible()) {
+                
+            
+            function Point(lat,long,html,icon) {
+                  this.gpoint = new GMarker(new GLatLng(lat,long),icon);
+                  this.html = html;
+                  
+               }               
+               
+               
+               function Map(id,points,lat,long,zoom) {
+                  this.id = id;
+                  this.points = points;
+                  this.gmap = new GMap2(document.getElementById(this.id));
+                  this.gmap.setCenter(new GLatLng(lat, long), zoom);
+                  this.markerlist = markerlist;
+                  this.addmarker = addmarker;
+                  this.array2points = array2points;
+                   
+                  function markerlist(array) {
+                     for (var i in array) {
+                        this.addmarker(array[i]);
+                     }
+                  }
+                  
+                  function array2points(map_points) {            
+                      for (var i in map_points) {  
+                        points[i] = new Point(map_points[i][0],map_points[i][1],map_points[i][2],map_points[i][3]);         }
+                      return points;   
+                    }                  
+                  
+                  function addmarker(point) {
+                     if (point.html) {
+                       GEvent.addListener(point.gpoint, "click", function() { // change click to mouseover or other mouse action
+                           point.gpoint.openInfoWindowHtml(point.html);
+                        
+                       });
+                       
+                     }
+                     this.gmap.addOverlay(point.gpoint);  
+                  }
+                  this.points = array2points(this.points);
+                  this.markerlist(this.points);
+            }  
+                     
+                var icon = new GIcon(); 
+                icon.image = "";
+                icon.shadow = "";
+                icon.iconSize = new GSize(12, 20);
+                icon.shadowSize = new GSize(22, 20);
+                icon.iconAnchor = new GPoint(6, 20);
+                icon.infoWindowAnchor = new GPoint(5, 1);
+         
+                var icon2 = new GIcon(); 
+                icon2.image = "http://labs.google.com/ridefinder/images/mm_20_blue.png";
+                icon2.shadow = "http://labs.google.com/ridefinder/images/mm_20_shadow.png";
+                icon2.iconSize = new GSize(12, 20);
+                icon2.shadowSize = new GSize(22, 20);
+                icon2.iconAnchor = new GPoint(6, 20);
+                icon2.infoWindowAnchor = new GPoint(5, 1);
+         
+                var icon2 = new GIcon(); 
+                icon2.image = "http://labs.google.com/ridefinder/images/mm_20_blue.png";
+                icon2.shadow = "http://labs.google.com/ridefinder/images/mm_20_shadow.png";
+                icon2.iconSize = new GSize(12, 20);
+                icon2.shadowSize = new GSize(22, 20);
+                icon2.iconAnchor = new GPoint(6, 20);
+                icon2.infoWindowAnchor = new GPoint(5, 1);
+         
+                var icon2 = new GIcon(); 
+                icon2.image = "http://labs.google.com/ridefinder/images/mm_20_blue.png";
+                icon2.shadow = "http://labs.google.com/ridefinder/images/mm_20_shadow.png";
+                icon2.iconSize = new GSize(12, 20);
+                icon2.shadowSize = new GSize(22, 20);
+                icon2.iconAnchor = new GPoint(6, 20);
+                icon2.infoWindowAnchor = new GPoint(5, 1);
+         
+                var icon2 = new GIcon(); 
+                icon2.image = "http://labs.google.com/ridefinder/images/mm_20_blue.png";
+                icon2.shadow = "http://labs.google.com/ridefinder/images/mm_20_shadow.png";
+                icon2.iconSize = new GSize(12, 20);
+                icon2.shadowSize = new GSize(22, 20);
+                icon2.iconAnchor = new GPoint(6, 20);
+                icon2.infoWindowAnchor = new GPoint(5, 1);
+         
+                var icon2 = new GIcon(); 
+                icon2.image = "http://labs.google.com/ridefinder/images/mm_20_blue.png";
+                icon2.shadow = "http://labs.google.com/ridefinder/images/mm_20_shadow.png";
+                icon2.iconSize = new GSize(12, 20);
+                icon2.shadowSize = new GSize(22, 20);
+                icon2.iconAnchor = new GPoint(6, 20);
+                icon2.infoWindowAnchor = new GPoint(5, 1);
+         
+                var icon2 = new GIcon(); 
+                icon2.image = "http://labs.google.com/ridefinder/images/mm_20_blue.png";
+                icon2.shadow = "http://labs.google.com/ridefinder/images/mm_20_shadow.png";
+                icon2.iconSize = new GSize(12, 20);
+                icon2.shadowSize = new GSize(22, 20);
+                icon2.iconAnchor = new GPoint(6, 20);
+                icon2.infoWindowAnchor = new GPoint(5, 1);
+         
+                var icon2 = new GIcon(); 
+                icon2.image = "http://labs.google.com/ridefinder/images/mm_20_blue.png";
+                icon2.shadow = "http://labs.google.com/ridefinder/images/mm_20_shadow.png";
+                icon2.iconSize = new GSize(12, 20);
+                icon2.shadowSize = new GSize(22, 20);
+                icon2.iconAnchor = new GPoint(6, 20);
+                icon2.infoWindowAnchor = new GPoint(5, 1);
+         
+                var icon2 = new GIcon(); 
+                icon2.image = "http://labs.google.com/ridefinder/images/mm_20_blue.png";
+                icon2.shadow = "http://labs.google.com/ridefinder/images/mm_20_shadow.png";
+                icon2.iconSize = new GSize(12, 20);
+                icon2.shadowSize = new GSize(22, 20);
+                icon2.iconAnchor = new GPoint(6, 20);
+                icon2.infoWindowAnchor = new GPoint(5, 1);
+         
+                var icon2 = new GIcon(); 
+                icon2.image = "http://labs.google.com/ridefinder/images/mm_20_blue.png";
+                icon2.shadow = "http://labs.google.com/ridefinder/images/mm_20_shadow.png";
+                icon2.iconSize = new GSize(12, 20);
+                icon2.shadowSize = new GSize(22, 20);
+                icon2.iconAnchor = new GPoint(6, 20);
+                icon2.infoWindowAnchor = new GPoint(5, 1);
+         
+                var icon2 = new GIcon(); 
+                icon2.image = "http://labs.google.com/ridefinder/images/mm_20_blue.png";
+                icon2.shadow = "http://labs.google.com/ridefinder/images/mm_20_shadow.png";
+                icon2.iconSize = new GSize(12, 20);
+                icon2.shadowSize = new GSize(22, 20);
+                icon2.iconAnchor = new GPoint(6, 20);
+                icon2.infoWindowAnchor = new GPoint(5, 1);
+         
+                var icon2 = new GIcon(); 
+                icon2.image = "http://labs.google.com/ridefinder/images/mm_20_blue.png";
+                icon2.shadow = "http://labs.google.com/ridefinder/images/mm_20_shadow.png";
+                icon2.iconSize = new GSize(12, 20);
+                icon2.shadowSize = new GSize(22, 20);
+                icon2.iconAnchor = new GPoint(6, 20);
+                icon2.infoWindowAnchor = new GPoint(5, 1);
+         
+                var icon2 = new GIcon(); 
+                icon2.image = "http://labs.google.com/ridefinder/images/mm_20_blue.png";
+                icon2.shadow = "http://labs.google.com/ridefinder/images/mm_20_shadow.png";
+                icon2.iconSize = new GSize(12, 20);
+                icon2.shadowSize = new GSize(22, 20);
+                icon2.iconAnchor = new GPoint(6, 20);
+                icon2.infoWindowAnchor = new GPoint(5, 1);
+         
+                var icon2 = new GIcon(); 
+                icon2.image = "http://labs.google.com/ridefinder/images/mm_20_blue.png";
+                icon2.shadow = "http://labs.google.com/ridefinder/images/mm_20_shadow.png";
+                icon2.iconSize = new GSize(12, 20);
+                icon2.shadowSize = new GSize(22, 20);
+                icon2.iconAnchor = new GPoint(6, 20);
+                icon2.infoWindowAnchor = new GPoint(5, 1);
+         
+                var icon2 = new GIcon(); 
+                icon2.image = "http://labs.google.com/ridefinder/images/mm_20_blue.png";
+                icon2.shadow = "http://labs.google.com/ridefinder/images/mm_20_shadow.png";
+                icon2.iconSize = new GSize(12, 20);
+                icon2.shadowSize = new GSize(22, 20);
+                icon2.iconAnchor = new GPoint(6, 20);
+                icon2.infoWindowAnchor = new GPoint(5, 1);
+         
+                var icon2 = new GIcon(); 
+                icon2.image = "http://labs.google.com/ridefinder/images/mm_20_blue.png";
+                icon2.shadow = "http://labs.google.com/ridefinder/images/mm_20_shadow.png";
+                icon2.iconSize = new GSize(12, 20);
+                icon2.shadowSize = new GSize(22, 20);
+                icon2.iconAnchor = new GPoint(6, 20);
+                icon2.infoWindowAnchor = new GPoint(5, 1);
+         
+                var icon2 = new GIcon(); 
+                icon2.image = "http://labs.google.com/ridefinder/images/mm_20_blue.png";
+                icon2.shadow = "http://labs.google.com/ridefinder/images/mm_20_shadow.png";
+                icon2.iconSize = new GSize(12, 20);
+                icon2.shadowSize = new GSize(22, 20);
+                icon2.iconAnchor = new GPoint(6, 20);
+                icon2.infoWindowAnchor = new GPoint(5, 1);
+         
+                var icon2 = new GIcon(); 
+                icon2.image = "http://labs.google.com/ridefinder/images/mm_20_blue.png";
+                icon2.shadow = "http://labs.google.com/ridefinder/images/mm_20_shadow.png";
+                icon2.iconSize = new GSize(12, 20);
+                icon2.shadowSize = new GSize(22, 20);
+                icon2.iconAnchor = new GPoint(6, 20);
+                icon2.infoWindowAnchor = new GPoint(5, 1);
+         
+                var icon2 = new GIcon(); 
+                icon2.image = "http://labs.google.com/ridefinder/images/mm_20_blue.png";
+                icon2.shadow = "http://labs.google.com/ridefinder/images/mm_20_shadow.png";
+                icon2.iconSize = new GSize(12, 20);
+                icon2.shadowSize = new GSize(22, 20);
+                icon2.iconAnchor = new GPoint(6, 20);
+                icon2.infoWindowAnchor = new GPoint(5, 1);
+         
+                var icon2 = new GIcon(); 
+                icon2.image = "http://labs.google.com/ridefinder/images/mm_20_blue.png";
+                icon2.shadow = "http://labs.google.com/ridefinder/images/mm_20_shadow.png";
+                icon2.iconSize = new GSize(12, 20);
+                icon2.shadowSize = new GSize(22, 20);
+                icon2.iconAnchor = new GPoint(6, 20);
+                icon2.infoWindowAnchor = new GPoint(5, 1);
+         
+                var icon2 = new GIcon(); 
+                icon2.image = "http://labs.google.com/ridefinder/images/mm_20_blue.png";
+                icon2.shadow = "http://labs.google.com/ridefinder/images/mm_20_shadow.png";
+                icon2.iconSize = new GSize(12, 20);
+                icon2.shadowSize = new GSize(22, 20);
+                icon2.iconAnchor = new GPoint(6, 20);
+                icon2.infoWindowAnchor = new GPoint(5, 1);
+         
+                var icon2 = new GIcon(); 
+                icon2.image = "http://labs.google.com/ridefinder/images/mm_20_blue.png";
+                icon2.shadow = "http://labs.google.com/ridefinder/images/mm_20_shadow.png";
+                icon2.iconSize = new GSize(12, 20);
+                icon2.shadowSize = new GSize(22, 20);
+                icon2.iconAnchor = new GPoint(6, 20);
+                icon2.infoWindowAnchor = new GPoint(5, 1);
+         
+                var icon2 = new GIcon(); 
+                icon2.image = "http://labs.google.com/ridefinder/images/mm_20_blue.png";
+                icon2.shadow = "http://labs.google.com/ridefinder/images/mm_20_shadow.png";
+                icon2.iconSize = new GSize(12, 20);
+                icon2.shadowSize = new GSize(22, 20);
+                icon2.iconAnchor = new GPoint(6, 20);
+                icon2.infoWindowAnchor = new GPoint(5, 1);
+         
+                var icon2 = new GIcon(); 
+                icon2.image = "http://labs.google.com/ridefinder/images/mm_20_blue.png";
+                icon2.shadow = "http://labs.google.com/ridefinder/images/mm_20_shadow.png";
+                icon2.iconSize = new GSize(12, 20);
+                icon2.shadowSize = new GSize(22, 20);
+                icon2.iconAnchor = new GPoint(6, 20);
+                icon2.infoWindowAnchor = new GPoint(5, 1);
+         
+                var icon2 = new GIcon(); 
+                icon2.image = "http://labs.google.com/ridefinder/images/mm_20_blue.png";
+                icon2.shadow = "http://labs.google.com/ridefinder/images/mm_20_shadow.png";
+                icon2.iconSize = new GSize(12, 20);
+                icon2.shadowSize = new GSize(22, 20);
+                icon2.iconAnchor = new GPoint(6, 20);
+                icon2.infoWindowAnchor = new GPoint(5, 1);
+         
+                var icon2 = new GIcon(); 
+                icon2.image = "http://labs.google.com/ridefinder/images/mm_20_blue.png";
+                icon2.shadow = "http://labs.google.com/ridefinder/images/mm_20_shadow.png";
+                icon2.iconSize = new GSize(12, 20);
+                icon2.shadowSize = new GSize(22, 20);
+                icon2.iconAnchor = new GPoint(6, 20);
+                icon2.infoWindowAnchor = new GPoint(5, 1);
+         
+                var icon2 = new GIcon(); 
+                icon2.image = "http://labs.google.com/ridefinder/images/mm_20_blue.png";
+                icon2.shadow = "http://labs.google.com/ridefinder/images/mm_20_shadow.png";
+                icon2.iconSize = new GSize(12, 20);
+                icon2.shadowSize = new GSize(22, 20);
+                icon2.iconAnchor = new GPoint(6, 20);
+                icon2.infoWindowAnchor = new GPoint(5, 1);
+         
+                var icon2 = new GIcon(); 
+                icon2.image = "http://labs.google.com/ridefinder/images/mm_20_blue.png";
+                icon2.shadow = "http://labs.google.com/ridefinder/images/mm_20_shadow.png";
+                icon2.iconSize = new GSize(12, 20);
+                icon2.shadowSize = new GSize(22, 20);
+                icon2.iconAnchor = new GPoint(6, 20);
+                icon2.infoWindowAnchor = new GPoint(5, 1);
+         
+                var icon2 = new GIcon(); 
+                icon2.image = "http://labs.google.com/ridefinder/images/mm_20_blue.png";
+                icon2.shadow = "http://labs.google.com/ridefinder/images/mm_20_shadow.png";
+                icon2.iconSize = new GSize(12, 20);
+                icon2.shadowSize = new GSize(22, 20);
+                icon2.iconAnchor = new GPoint(6, 20);
+                icon2.infoWindowAnchor = new GPoint(5, 1);
+         
+                var icon2 = new GIcon(); 
+                icon2.image = "http://labs.google.com/ridefinder/images/mm_20_blue.png";
+                icon2.shadow = "http://labs.google.com/ridefinder/images/mm_20_shadow.png";
+                icon2.iconSize = new GSize(12, 20);
+                icon2.shadowSize = new GSize(22, 20);
+                icon2.iconAnchor = new GPoint(6, 20);
+                icon2.infoWindowAnchor = new GPoint(5, 1);
+         
+                var icon2 = new GIcon(); 
+                icon2.image = "http://labs.google.com/ridefinder/images/mm_20_blue.png";
+                icon2.shadow = "http://labs.google.com/ridefinder/images/mm_20_shadow.png";
+                icon2.iconSize = new GSize(12, 20);
+                icon2.shadowSize = new GSize(22, 20);
+                icon2.iconAnchor = new GPoint(6, 20);
+                icon2.infoWindowAnchor = new GPoint(5, 1);
+         
+                var icon2 = new GIcon(); 
+                icon2.image = "http://labs.google.com/ridefinder/images/mm_20_blue.png";
+                icon2.shadow = "http://labs.google.com/ridefinder/images/mm_20_shadow.png";
+                icon2.iconSize = new GSize(12, 20);
+                icon2.shadowSize = new GSize(22, 20);
+                icon2.iconAnchor = new GPoint(6, 20);
+                icon2.infoWindowAnchor = new GPoint(5, 1);
+         
+                var icon2 = new GIcon(); 
+                icon2.image = "http://labs.google.com/ridefinder/images/mm_20_blue.png";
+                icon2.shadow = "http://labs.google.com/ridefinder/images/mm_20_shadow.png";
+                icon2.iconSize = new GSize(12, 20);
+                icon2.shadowSize = new GSize(22, 20);
+                icon2.iconAnchor = new GPoint(6, 20);
+                icon2.infoWindowAnchor = new GPoint(5, 1);
+         
+                var icon2 = new GIcon(); 
+                icon2.image = "http://labs.google.com/ridefinder/images/mm_20_blue.png";
+                icon2.shadow = "http://labs.google.com/ridefinder/images/mm_20_shadow.png";
+                icon2.iconSize = new GSize(12, 20);
+                icon2.shadowSize = new GSize(22, 20);
+                icon2.iconAnchor = new GPoint(6, 20);
+                icon2.infoWindowAnchor = new GPoint(5, 1);
+         
+                var icon2 = new GIcon(); 
+                icon2.image = "http://labs.google.com/ridefinder/images/mm_20_blue.png";
+                icon2.shadow = "http://labs.google.com/ridefinder/images/mm_20_shadow.png";
+                icon2.iconSize = new GSize(12, 20);
+                icon2.shadowSize = new GSize(22, 20);
+                icon2.iconAnchor = new GPoint(6, 20);
+                icon2.infoWindowAnchor = new GPoint(5, 1);
+         
+                var icon2 = new GIcon(); 
+                icon2.image = "http://labs.google.com/ridefinder/images/mm_20_blue.png";
+                icon2.shadow = "http://labs.google.com/ridefinder/images/mm_20_shadow.png";
+                icon2.iconSize = new GSize(12, 20);
+                icon2.shadowSize = new GSize(22, 20);
+                icon2.iconAnchor = new GPoint(6, 20);
+                icon2.infoWindowAnchor = new GPoint(5, 1);
+         
+                var icon2 = new GIcon(); 
+                icon2.image = "http://labs.google.com/ridefinder/images/mm_20_blue.png";
+                icon2.shadow = "http://labs.google.com/ridefinder/images/mm_20_shadow.png";
+                icon2.iconSize = new GSize(12, 20);
+                icon2.shadowSize = new GSize(22, 20);
+                icon2.iconAnchor = new GPoint(6, 20);
+                icon2.infoWindowAnchor = new GPoint(5, 1);
+         
+                var icon2 = new GIcon(); 
+                icon2.image = "http://labs.google.com/ridefinder/images/mm_20_blue.png";
+                icon2.shadow = "http://labs.google.com/ridefinder/images/mm_20_shadow.png";
+                icon2.iconSize = new GSize(12, 20);
+                icon2.shadowSize = new GSize(22, 20);
+                icon2.iconAnchor = new GPoint(6, 20);
+                icon2.infoWindowAnchor = new GPoint(5, 1);
+         
+                var icon2 = new GIcon(); 
+                icon2.image = "http://labs.google.com/ridefinder/images/mm_20_blue.png";
+                icon2.shadow = "http://labs.google.com/ridefinder/images/mm_20_shadow.png";
+                icon2.iconSize = new GSize(12, 20);
+                icon2.shadowSize = new GSize(22, 20);
+                icon2.iconAnchor = new GPoint(6, 20);
+                icon2.infoWindowAnchor = new GPoint(5, 1);
+         
+                var icon2 = new GIcon(); 
+                icon2.image = "http://labs.google.com/ridefinder/images/mm_20_blue.png";
+                icon2.shadow = "http://labs.google.com/ridefinder/images/mm_20_shadow.png";
+                icon2.iconSize = new GSize(12, 20);
+                icon2.shadowSize = new GSize(22, 20);
+                icon2.iconAnchor = new GPoint(6, 20);
+                icon2.infoWindowAnchor = new GPoint(5, 1);
+         
+                var icon2 = new GIcon(); 
+                icon2.image = "http://labs.google.com/ridefinder/images/mm_20_blue.png";
+                icon2.shadow = "http://labs.google.com/ridefinder/images/mm_20_shadow.png";
+                icon2.iconSize = new GSize(12, 20);
+                icon2.shadowSize = new GSize(22, 20);
+                icon2.iconAnchor = new GPoint(6, 20);
+                icon2.infoWindowAnchor = new GPoint(5, 1);
+         
+                var icon2 = new GIcon(); 
+                icon2.image = "http://labs.google.com/ridefinder/images/mm_20_blue.png";
+                icon2.shadow = "http://labs.google.com/ridefinder/images/mm_20_shadow.png";
+                icon2.iconSize = new GSize(12, 20);
+                icon2.shadowSize = new GSize(22, 20);
+                icon2.iconAnchor = new GPoint(6, 20);
+                icon2.infoWindowAnchor = new GPoint(5, 1);
+         
+                var icon2 = new GIcon(); 
+                icon2.image = "http://labs.google.com/ridefinder/images/mm_20_blue.png";
+                icon2.shadow = "http://labs.google.com/ridefinder/images/mm_20_shadow.png";
+                icon2.iconSize = new GSize(12, 20);
+                icon2.shadowSize = new GSize(22, 20);
+                icon2.iconAnchor = new GPoint(6, 20);
+                icon2.infoWindowAnchor = new GPoint(5, 1);
+         
+                var icon2 = new GIcon(); 
+                icon2.image = "http://labs.google.com/ridefinder/images/mm_20_blue.png";
+                icon2.shadow = "http://labs.google.com/ridefinder/images/mm_20_shadow.png";
+                icon2.iconSize = new GSize(12, 20);
+                icon2.shadowSize = new GSize(22, 20);
+                icon2.iconAnchor = new GPoint(6, 20);
+                icon2.infoWindowAnchor = new GPoint(5, 1);
+         
+                var icon2 = new GIcon(); 
+                icon2.image = "http://labs.google.com/ridefinder/images/mm_20_blue.png";
+                icon2.shadow = "http://labs.google.com/ridefinder/images/mm_20_shadow.png";
+                icon2.iconSize = new GSize(12, 20);
+                icon2.shadowSize = new GSize(22, 20);
+                icon2.iconAnchor = new GPoint(6, 20);
+                icon2.infoWindowAnchor = new GPoint(5, 1);
+         
+                var icon2 = new GIcon(); 
+                icon2.image = "http://labs.google.com/ridefinder/images/mm_20_blue.png";
+                icon2.shadow = "http://labs.google.com/ridefinder/images/mm_20_shadow.png";
+                icon2.iconSize = new GSize(12, 20);
+                icon2.shadowSize = new GSize(22, 20);
+                icon2.iconAnchor = new GPoint(6, 20);
+                icon2.infoWindowAnchor = new GPoint(5, 1);
+         
+                var icon2 = new GIcon(); 
+                icon2.image = "http://labs.google.com/ridefinder/images/mm_20_blue.png";
+                icon2.shadow = "http://labs.google.com/ridefinder/images/mm_20_shadow.png";
+                icon2.iconSize = new GSize(12, 20);
+                icon2.shadowSize = new GSize(22, 20);
+                icon2.iconAnchor = new GPoint(6, 20);
+                icon2.infoWindowAnchor = new GPoint(5, 1);
+         
+                var icon2 = new GIcon(); 
+                icon2.image = "http://labs.google.com/ridefinder/images/mm_20_blue.png";
+                icon2.shadow = "http://labs.google.com/ridefinder/images/mm_20_shadow.png";
+                icon2.iconSize = new GSize(12, 20);
+                icon2.shadowSize = new GSize(22, 20);
+                icon2.iconAnchor = new GPoint(6, 20);
+                icon2.infoWindowAnchor = new GPoint(5, 1);
+         
+                var icon2 = new GIcon(); 
+                icon2.image = "http://labs.google.com/ridefinder/images/mm_20_blue.png";
+                icon2.shadow = "http://labs.google.com/ridefinder/images/mm_20_shadow.png";
+                icon2.iconSize = new GSize(12, 20);
+                icon2.shadowSize = new GSize(22, 20);
+                icon2.iconAnchor = new GPoint(6, 20);
+                icon2.infoWindowAnchor = new GPoint(5, 1);
+         
+                var icon2 = new GIcon(); 
+                icon2.image = "http://labs.google.com/ridefinder/images/mm_20_blue.png";
+                icon2.shadow = "http://labs.google.com/ridefinder/images/mm_20_shadow.png";
+                icon2.iconSize = new GSize(12, 20);
+                icon2.shadowSize = new GSize(22, 20);
+                icon2.iconAnchor = new GPoint(6, 20);
+                icon2.infoWindowAnchor = new GPoint(5, 1);
+         
+                var icon2 = new GIcon(); 
+                icon2.image = "http://labs.google.com/ridefinder/images/mm_20_blue.png";
+                icon2.shadow = "http://labs.google.com/ridefinder/images/mm_20_shadow.png";
+                icon2.iconSize = new GSize(12, 20);
+                icon2.shadowSize = new GSize(22, 20);
+                icon2.iconAnchor = new GPoint(6, 20);
+                icon2.infoWindowAnchor = new GPoint(5, 1);
+         
+                var icon2 = new GIcon(); 
+                icon2.image = "http://labs.google.com/ridefinder/images/mm_20_blue.png";
+                icon2.shadow = "http://labs.google.com/ridefinder/images/mm_20_shadow.png";
+                icon2.iconSize = new GSize(12, 20);
+                icon2.shadowSize = new GSize(22, 20);
+                icon2.iconAnchor = new GPoint(6, 20);
+                icon2.infoWindowAnchor = new GPoint(5, 1);
+         
+                var icon2 = new GIcon(); 
+                icon2.image = "http://labs.google.com/ridefinder/images/mm_20_blue.png";
+                icon2.shadow = "http://labs.google.com/ridefinder/images/mm_20_shadow.png";
+                icon2.iconSize = new GSize(12, 20);
+                icon2.shadowSize = new GSize(22, 20);
+                icon2.iconAnchor = new GPoint(6, 20);
+                icon2.infoWindowAnchor = new GPoint(5, 1);
+         
+                var icon2 = new GIcon(); 
+                icon2.image = "http://labs.google.com/ridefinder/images/mm_20_blue.png";
+                icon2.shadow = "http://labs.google.com/ridefinder/images/mm_20_shadow.png";
+                icon2.iconSize = new GSize(12, 20);
+                icon2.shadowSize = new GSize(22, 20);
+                icon2.iconAnchor = new GPoint(6, 20);
+                icon2.infoWindowAnchor = new GPoint(5, 1);
+         
+                var icon2 = new GIcon(); 
+                icon2.image = "http://labs.google.com/ridefinder/images/mm_20_blue.png";
+                icon2.shadow = "http://labs.google.com/ridefinder/images/mm_20_shadow.png";
+                icon2.iconSize = new GSize(12, 20);
+                icon2.shadowSize = new GSize(22, 20);
+                icon2.iconAnchor = new GPoint(6, 20);
+                icon2.infoWindowAnchor = new GPoint(5, 1);
+         
+                var icon2 = new GIcon(); 
+                icon2.image = "http://labs.google.com/ridefinder/images/mm_20_blue.png";
+                icon2.shadow = "http://labs.google.com/ridefinder/images/mm_20_shadow.png";
+                icon2.iconSize = new GSize(12, 20);
+                icon2.shadowSize = new GSize(22, 20);
+                icon2.iconAnchor = new GPoint(6, 20);
+                icon2.infoWindowAnchor = new GPoint(5, 1);
+         
+                var icon2 = new GIcon(); 
+                icon2.image = "http://labs.google.com/ridefinder/images/mm_20_blue.png";
+                icon2.shadow = "http://labs.google.com/ridefinder/images/mm_20_shadow.png";
+                icon2.iconSize = new GSize(12, 20);
+                icon2.shadowSize = new GSize(22, 20);
+                icon2.iconAnchor = new GPoint(6, 20);
+                icon2.infoWindowAnchor = new GPoint(5, 1);
+         
+                var icon2 = new GIcon(); 
+                icon2.image = "http://labs.google.com/ridefinder/images/mm_20_blue.png";
+                icon2.shadow = "http://labs.google.com/ridefinder/images/mm_20_shadow.png";
+                icon2.iconSize = new GSize(12, 20);
+                icon2.shadowSize = new GSize(22, 20);
+                icon2.iconAnchor = new GPoint(6, 20);
+                icon2.infoWindowAnchor = new GPoint(5, 1);
+         
+                var icon2 = new GIcon(); 
+                icon2.image = "http://labs.google.com/ridefinder/images/mm_20_blue.png";
+                icon2.shadow = "http://labs.google.com/ridefinder/images/mm_20_shadow.png";
+                icon2.iconSize = new GSize(12, 20);
+                icon2.shadowSize = new GSize(22, 20);
+                icon2.iconAnchor = new GPoint(6, 20);
+                icon2.infoWindowAnchor = new GPoint(5, 1);
+         
+                var icon2 = new GIcon(); 
+                icon2.image = "http://labs.google.com/ridefinder/images/mm_20_blue.png";
+                icon2.shadow = "http://labs.google.com/ridefinder/images/mm_20_shadow.png";
+                icon2.iconSize = new GSize(12, 20);
+                icon2.shadowSize = new GSize(22, 20);
+                icon2.iconAnchor = new GPoint(6, 20);
+                icon2.infoWindowAnchor = new GPoint(5, 1);
+         
+                var icon2 = new GIcon(); 
+                icon2.image = "http://labs.google.com/ridefinder/images/mm_20_blue.png";
+                icon2.shadow = "http://labs.google.com/ridefinder/images/mm_20_shadow.png";
+                icon2.iconSize = new GSize(12, 20);
+                icon2.shadowSize = new GSize(22, 20);
+                icon2.iconAnchor = new GPoint(6, 20);
+                icon2.infoWindowAnchor = new GPoint(5, 1);
+         
+                var icon2 = new GIcon(); 
+                icon2.image = "http://labs.google.com/ridefinder/images/mm_20_blue.png";
+                icon2.shadow = "http://labs.google.com/ridefinder/images/mm_20_shadow.png";
+                icon2.iconSize = new GSize(12, 20);
+                icon2.shadowSize = new GSize(22, 20);
+                icon2.iconAnchor = new GPoint(6, 20);
+                icon2.infoWindowAnchor = new GPoint(5, 1);
+         
+                var icon2 = new GIcon(); 
+                icon2.image = "http://labs.google.com/ridefinder/images/mm_20_blue.png";
+                icon2.shadow = "http://labs.google.com/ridefinder/images/mm_20_shadow.png";
+                icon2.iconSize = new GSize(12, 20);
+                icon2.shadowSize = new GSize(22, 20);
+                icon2.iconAnchor = new GPoint(6, 20);
+                icon2.infoWindowAnchor = new GPoint(5, 1);
+         
+                var icon2 = new GIcon(); 
+                icon2.image = "http://labs.google.com/ridefinder/images/mm_20_blue.png";
+                icon2.shadow = "http://labs.google.com/ridefinder/images/mm_20_shadow.png";
+                icon2.iconSize = new GSize(12, 20);
+                icon2.shadowSize = new GSize(22, 20);
+                icon2.iconAnchor = new GPoint(6, 20);
+                icon2.infoWindowAnchor = new GPoint(5, 1);
+         
+                var icon2 = new GIcon(); 
+                icon2.image = "http://labs.google.com/ridefinder/images/mm_20_blue.png";
+                icon2.shadow = "http://labs.google.com/ridefinder/images/mm_20_shadow.png";
+                icon2.iconSize = new GSize(12, 20);
+                icon2.shadowSize = new GSize(22, 20);
+                icon2.iconAnchor = new GPoint(6, 20);
+                icon2.infoWindowAnchor = new GPoint(5, 1);
+         
+                var icon2 = new GIcon(); 
+                icon2.image = "http://labs.google.com/ridefinder/images/mm_20_blue.png";
+                icon2.shadow = "http://labs.google.com/ridefinder/images/mm_20_shadow.png";
+                icon2.iconSize = new GSize(12, 20);
+                icon2.shadowSize = new GSize(22, 20);
+                icon2.iconAnchor = new GPoint(6, 20);
+                icon2.infoWindowAnchor = new GPoint(5, 1);
+         
+                var icon2 = new GIcon(); 
+                icon2.image = "http://labs.google.com/ridefinder/images/mm_20_blue.png";
+                icon2.shadow = "http://labs.google.com/ridefinder/images/mm_20_shadow.png";
+                icon2.iconSize = new GSize(12, 20);
+                icon2.shadowSize = new GSize(22, 20);
+                icon2.iconAnchor = new GPoint(6, 20);
+                icon2.infoWindowAnchor = new GPoint(5, 1);
+         
+                var icon2 = new GIcon(); 
+                icon2.image = "http://labs.google.com/ridefinder/images/mm_20_blue.png";
+                icon2.shadow = "http://labs.google.com/ridefinder/images/mm_20_shadow.png";
+                icon2.iconSize = new GSize(12, 20);
+                icon2.shadowSize = new GSize(22, 20);
+                icon2.iconAnchor = new GPoint(6, 20);
+                icon2.infoWindowAnchor = new GPoint(5, 1);
+         
+                var icon2 = new GIcon(); 
+                icon2.image = "http://labs.google.com/ridefinder/images/mm_20_blue.png";
+                icon2.shadow = "http://labs.google.com/ridefinder/images/mm_20_shadow.png";
+                icon2.iconSize = new GSize(12, 20);
+                icon2.shadowSize = new GSize(22, 20);
+                icon2.iconAnchor = new GPoint(6, 20);
+                icon2.infoWindowAnchor = new GPoint(5, 1);
+         
+                var icon2 = new GIcon(); 
+                icon2.image = "http://labs.google.com/ridefinder/images/mm_20_blue.png";
+                icon2.shadow = "http://labs.google.com/ridefinder/images/mm_20_shadow.png";
+                icon2.iconSize = new GSize(12, 20);
+                icon2.shadowSize = new GSize(22, 20);
+                icon2.iconAnchor = new GPoint(6, 20);
+                icon2.infoWindowAnchor = new GPoint(5, 1);
+         
+                var icon2 = new GIcon(); 
+                icon2.image = "http://labs.google.com/ridefinder/images/mm_20_blue.png";
+                icon2.shadow = "http://labs.google.com/ridefinder/images/mm_20_shadow.png";
+                icon2.iconSize = new GSize(12, 20);
+                icon2.shadowSize = new GSize(22, 20);
+                icon2.iconAnchor = new GPoint(6, 20);
+                icon2.infoWindowAnchor = new GPoint(5, 1);
+         
+                var icon2 = new GIcon(); 
+                icon2.image = "http://labs.google.com/ridefinder/images/mm_20_blue.png";
+                icon2.shadow = "http://labs.google.com/ridefinder/images/mm_20_shadow.png";
+                icon2.iconSize = new GSize(12, 20);
+                icon2.shadowSize = new GSize(22, 20);
+                icon2.iconAnchor = new GPoint(6, 20);
+                icon2.infoWindowAnchor = new GPoint(5, 1);
+         
+                var icon2 = new GIcon(); 
+                icon2.image = "http://labs.google.com/ridefinder/images/mm_20_blue.png";
+                icon2.shadow = "http://labs.google.com/ridefinder/images/mm_20_shadow.png";
+                icon2.iconSize = new GSize(12, 20);
+                icon2.shadowSize = new GSize(22, 20);
+                icon2.iconAnchor = new GPoint(6, 20);
+                icon2.infoWindowAnchor = new GPoint(5, 1);
+         
+                var icon2 = new GIcon(); 
+                icon2.image = "http://labs.google.com/ridefinder/images/mm_20_blue.png";
+                icon2.shadow = "http://labs.google.com/ridefinder/images/mm_20_shadow.png";
+                icon2.iconSize = new GSize(12, 20);
+                icon2.shadowSize = new GSize(22, 20);
+                icon2.iconAnchor = new GPoint(6, 20);
+                icon2.infoWindowAnchor = new GPoint(5, 1);
+         
+                var icon2 = new GIcon(); 
+                icon2.image = "http://labs.google.com/ridefinder/images/mm_20_blue.png";
+                icon2.shadow = "http://labs.google.com/ridefinder/images/mm_20_shadow.png";
+                icon2.iconSize = new GSize(12, 20);
+                icon2.shadowSize = new GSize(22, 20);
+                icon2.iconAnchor = new GPoint(6, 20);
+                icon2.infoWindowAnchor = new GPoint(5, 1);
+         
+                var icon2 = new GIcon(); 
+                icon2.image = "http://labs.google.com/ridefinder/images/mm_20_blue.png";
+                icon2.shadow = "http://labs.google.com/ridefinder/images/mm_20_shadow.png";
+                icon2.iconSize = new GSize(12, 20);
+                icon2.shadowSize = new GSize(22, 20);
+                icon2.iconAnchor = new GPoint(6, 20);
+                icon2.infoWindowAnchor = new GPoint(5, 1);
+         
+                var icon2 = new GIcon(); 
+                icon2.image = "http://labs.google.com/ridefinder/images/mm_20_blue.png";
+                icon2.shadow = "http://labs.google.com/ridefinder/images/mm_20_shadow.png";
+                icon2.iconSize = new GSize(12, 20);
+                icon2.shadowSize = new GSize(22, 20);
+                icon2.iconAnchor = new GPoint(6, 20);
+                icon2.infoWindowAnchor = new GPoint(5, 1);
+         
+                var icon2 = new GIcon(); 
+                icon2.image = "http://labs.google.com/ridefinder/images/mm_20_blue.png";
+                icon2.shadow = "http://labs.google.com/ridefinder/images/mm_20_shadow.png";
+                icon2.iconSize = new GSize(12, 20);
+                icon2.shadowSize = new GSize(22, 20);
+                icon2.iconAnchor = new GPoint(6, 20);
+                icon2.infoWindowAnchor = new GPoint(5, 1);
+         
+                var icon2 = new GIcon(); 
+                icon2.image = "http://labs.google.com/ridefinder/images/mm_20_blue.png";
+                icon2.shadow = "http://labs.google.com/ridefinder/images/mm_20_shadow.png";
+                icon2.iconSize = new GSize(12, 20);
+                icon2.shadowSize = new GSize(22, 20);
+                icon2.iconAnchor = new GPoint(6, 20);
+                icon2.infoWindowAnchor = new GPoint(5, 1);
+         
+                var icon2 = new GIcon(); 
+                icon2.image = "http://labs.google.com/ridefinder/images/mm_20_blue.png";
+                icon2.shadow = "http://labs.google.com/ridefinder/images/mm_20_shadow.png";
+                icon2.iconSize = new GSize(12, 20);
+                icon2.shadowSize = new GSize(22, 20);
+                icon2.iconAnchor = new GPoint(6, 20);
+                icon2.infoWindowAnchor = new GPoint(5, 1);
+         
+                var icon2 = new GIcon(); 
+                icon2.image = "http://labs.google.com/ridefinder/images/mm_20_blue.png";
+                icon2.shadow = "http://labs.google.com/ridefinder/images/mm_20_shadow.png";
+                icon2.iconSize = new GSize(12, 20);
+                icon2.shadowSize = new GSize(22, 20);
+                icon2.iconAnchor = new GPoint(6, 20);
+                icon2.infoWindowAnchor = new GPoint(5, 1);
+         
+                var icon2 = new GIcon(); 
+                icon2.image = "http://labs.google.com/ridefinder/images/mm_20_blue.png";
+                icon2.shadow = "http://labs.google.com/ridefinder/images/mm_20_shadow.png";
+                icon2.iconSize = new GSize(12, 20);
+                icon2.shadowSize = new GSize(22, 20);
+                icon2.iconAnchor = new GPoint(6, 20);
+                icon2.infoWindowAnchor = new GPoint(5, 1);
+         
+                var icon2 = new GIcon(); 
+                icon2.image = "http://labs.google.com/ridefinder/images/mm_20_blue.png";
+                icon2.shadow = "http://labs.google.com/ridefinder/images/mm_20_shadow.png";
+                icon2.iconSize = new GSize(12, 20);
+                icon2.shadowSize = new GSize(22, 20);
+                icon2.iconAnchor = new GPoint(6, 20);
+                icon2.infoWindowAnchor = new GPoint(5, 1);
+        
+                    map_points = [['43.8500', '18.3833', 'age: 19, categoryID: 1, condition: 3, education: dnchs, fromAmazon: 0, gender: female, motherTongue: ot, workerID: kiki', icon2], ['59.4833', '18.3000', 'age: 21, categoryID: 1, condition: 3, education: ma, fromAmazon: 0, gender: female, motherTongue: ot, workerID: Jennie', icon2], ['23.5000', '121.0000', 'age: 18, categoryID: 1, condition: 3, education: sc, fromAmazon: 0, gender: female, motherTongue: en, workerID: Kay', icon2], ['60.0000', '-95.0000', 'age: 18, categoryID: 1, condition: 3, education: hs, fromAmazon: 0, gender: female, motherTongue: ot, workerID: Camilla', icon2], ['52.2833', '-1.5833', 'age: 23, categoryID: 1, condition: 3, education: ba, fromAmazon: 0, gender: male, motherTongue: en, workerID: Thomas Waterton', icon2], ['32.3329', '34.8599', 'age: 20, categoryID: 1, condition: 3, education: hs, fromAmazon: 0, gender: female, motherTongue: ot, workerID: mog', icon2], ['51.3070', '0.9924', 'age: 32, categoryID: 1, condition: 3, education: phd, fromAmazon: 0, gender: male, motherTongue: ot, workerID: T', icon2], ['1.2931', '103.8558', 'age: 18, categoryID: 1, condition: 3, education: hs, fromAmazon: 0, gender: female, motherTongue: sp, workerID: Marietta', icon2], ['31.8146', '34.7800', 'age: 26, categoryID: 1, condition: 3, education: sc, fromAmazon: 0, gender: female, motherTongue: ot, workerID: M', icon2], ['31.5000', '34.7500', 'age: 35, categoryID: 1, condition: 3, education: ba, fromAmazon: 0, gender: male, motherTongue: ot, workerID: Ron', icon2], ['55.8873', '-4.3059', 'age: 19, categoryID: 1, condition: 3, education: sc, fromAmazon: 0, gender: female, motherTongue: en, workerID: Jessica', icon2], ['52.2833', '-1.5833', 'age: 22, categoryID: 1, condition: 3, education: hs, fromAmazon: 0, gender: female, motherTongue: ot, workerID: Edanur', icon2], ['53.5500', '9.8631', 'age: 20, categoryID: 1, condition: 3, education: hs, fromAmazon: 0, gender: female, motherTongue: ot, workerID: Svenjiii', icon2], ['41.9000', '12.4833', 'age: 27, categoryID: 1, condition: 3, education: ma, fromAmazon: 0, gender: female, motherTongue: ot, workerID: giogio', icon2], ['31.8969', '34.8186', 'age: 34, categoryID: 1, condition: 3, education: ma, fromAmazon: 0, gender: female, motherTongue: ot, workerID: N', icon2], ['40.6987', '-74.3296', 'age: 28, categoryID: 1, condition: 3, education: ma, fromAmazon: 0, gender: male, motherTongue: ot, workerID: mx', icon2], ['51.5118', '-0.1232', 'age: 20, categoryID: 1, condition: 3, education: hs, fromAmazon: 0, gender: female, motherTongue: en, workerID: Joana', icon2], ['51.5000', '-0.1300', 'age: 22, categoryID: 1, condition: 3, education: ba, fromAmazon: 0, gender: female, motherTongue: sp, workerID: Amparo', icon2], ['19.4342', '-99.1386', 'age: 23, categoryID: 1, condition: 3, education: sc, fromAmazon: 0, gender: male, motherTongue: sp, workerID: Anil', icon2], ['48.8667', '2.3333', 'age: 34, categoryID: 1, condition: 3, education: phd, fromAmazon: 0, gender: male, motherTongue: ot, workerID: Marcel', icon2], ['21.4667', '-71.1333', 'age: 22, categoryID: 1, condition: 3, education: sc, fromAmazon: 0, gender: female, motherTongue: en, workerID: Val', icon2], ['45.5019', '-73.5853', 'age: 20, categoryID: 1, condition: 3, education: sc, fromAmazon: 0, gender: female, motherTongue: ot, workerID: lavi', icon2], ['32.0903', '34.8397', 'age: 29, categoryID: 1, condition: 3, education: ba, fromAmazon: 0, gender: male, motherTongue: ot, workerID: Gadi', icon2], ['31.5000', '34.7500', 'age: 22, categoryID: 1, condition: 3, education: hs, fromAmazon: 0, gender: male, motherTongue: ot, workerID: Roei', icon2], ['51.5002', '-0.1710', 'age: 22, categoryID: 1, condition: 3, education: ba, fromAmazon: 0, gender: female, motherTongue: en, workerID: Ellie', icon2], ['52.1108', '4.3560', 'age: 18, categoryID: 1, condition: 3, education: hs, fromAmazon: 0, gender: female, motherTongue: ot, workerID: Lot', icon2], ['61.3167', '5.3667', 'age: 18, categoryID: 1, condition: 3, education: hs, fromAmazon: 0, gender: male, motherTongue: ot, workerID: Matthew', icon2], ['48.6667', '19.5000', 'age: 19, categoryID: 1, condition: 3, education: hs, fromAmazon: 0, gender: female, motherTongue: ot, workerID: andrea', icon2], ['-34.8581', '-56.1708', 'age: 23, categoryID: 1, condition: 3, education: sc, fromAmazon: 0, gender: female, motherTongue: sp, workerID: Mica', icon2], ['59.9167', '10.7500', 'age: 23, categoryID: 1, condition: 3, education: sc, fromAmazon: 0, gender: female, motherTongue: ot, workerID: Hailey', icon2], ['52.5931', '19.0894', 'age: 25, categoryID: 1, condition: 3, education: ma, fromAmazon: 0, gender: female, motherTongue: ot, workerID: Marta', icon2], ['52.0938', '5.1191', 'age: 20, categoryID: 1, condition: 3, education: sc, fromAmazon: 0, gender: female, motherTongue: sp, workerID: Maia', icon2], ['51.5000', '-0.1300', 'age: 22, categoryID: 1, condition: 3, education: hs, fromAmazon: 0, gender: female, motherTongue: en, workerID: n', icon2], ['-37.8139', '144.9634', 'age: 24, categoryID: 1, condition: 3, education: sc, fromAmazon: 0, gender: female, motherTongue: en, workerID: Hannah', icon2], ['42.3318', '-71.1212', 'age: 22, categoryID: 1, condition: 3, education: ma, fromAmazon: 0, gender: male, motherTongue: en, workerID: Kevin', icon2], ['51.5142', '-0.0931', 'age: 21, categoryID: 1, condition: 3, education: hs, fromAmazon: 0, gender: male, motherTongue: ot, workerID: Lodewijk', icon2], ['59.9167', '10.7500', 'd8ntm', icon2], ['51.4913', '-3.1672', 'age: 23, categoryID: 1, condition: 3, education: ba, fromAmazon: 0, gender: female, motherTongue: en, workerID: Rowan', icon2], ['22.4000', '113.9833', 'age: 18, categoryID: 1, condition: 3, education: hs, fromAmazon: 0, gender: female, motherTongue: sp, workerID: Nicole', icon2], ['31.5000', '34.7500', 'age: 28, categoryID: 1, condition: 3, education: ma, fromAmazon: 0, gender: male, motherTongue: ot, workerID: R', icon2], ['40.4391', '-3.6740', 'age: 20, categoryID: 1, condition: 3, education: ba, fromAmazon: 0, gender: female, motherTongue: ot, workerID: Lyna', icon2], ['32.0667', '34.7667', 'age: 35, categoryID: 1, condition: 3, education: ba, fromAmazon: 0, gender: male, motherTongue: ot, workerID: sco', icon2], ['43.7226', '-72.1342', 'age: 22, categoryID: 1, condition: 3, education: sc, fromAmazon: 0, gender: female, motherTongue: sp, workerID: Ale', icon2], ['50.8500', '5.6833', 'age: 19, categoryID: 1, condition: 3, education: ba, fromAmazon: 0, gender: male, motherTongue: ot, workerID: Eivind', icon2], ['51.5000', '-0.1300', 'age: 23, categoryID: 1, condition: 3, education: ma, fromAmazon: 0, gender: female, motherTongue: ot, workerID: Kasia', icon2], ['39.0000', '22.0000', 'age: 22, categoryID: 1, condition: 3, education: ba, fromAmazon: 0, gender: female, motherTongue: ot, workerID: Kelli', icon2], ['52.5000', '5.7500', 'age: 28, categoryID: 1, condition: 3, education: ba, fromAmazon: 0, gender: female, motherTongue: ot, workerID: Lieke', icon2], ['51.7002', '5.3068', 'age: 21, categoryID: 1, condition: 3, education: ba, fromAmazon: 0, gender: female, motherTongue: ot, workerID: Anne', icon2], ['52.2833', '-1.5833', 'age: 24, categoryID: 1, condition: 3, education: ba, fromAmazon: 0, gender: male, motherTongue: en, workerID: James', icon2], ['-31.9833', '115.8083', 'age: 19, categoryID: 1, condition: 3, education: hs, fromAmazon: 0, gender: male, motherTongue: en, workerID: Jackson', icon2], ['51.5000', '-0.1300', 'age: 36, categoryID: 1, condition: 3, education: phd, fromAmazon: 0, gender: female, motherTongue: sp, workerID: Caro', icon2], ['50.8333', '4.0000', 'age: 18, categoryID: 1, condition: 3, education: sc, fromAmazon: 0, gender: female, motherTongue: en, workerID: Masa', icon2], ['51.5148', '-0.1303', 'age: 23, categoryID: 1, condition: 3, education: ba, fromAmazon: 0, gender: female, motherTongue: en, workerID: Honor ', icon2], ['-37.8139', '144.9634', 'age: 31, categoryID: 1, condition: 3, education: ba, fromAmazon: 0, gender: female, motherTongue: en, workerID: Shanny', icon2], ['40.7391', '-73.9826', 'age: 25, categoryID: 1, condition: 3, education: ba, fromAmazon: 0, gender: female, motherTongue: en, workerID: Hayley', icon2], ['31.5000', '34.7500', 'age: 36, categoryID: 1, condition: 3, education: phd, fromAmazon: 0, gender: female, motherTongue: ot, workerID: i', icon2], ['50.1483', '-5.0761', 'age: 19, categoryID: 1, condition: 3, education: ba, fromAmazon: 0, gender: female, motherTongue: ot, workerID: Me', icon2], ['39.9289', '116.3883', 'age: 25, categoryID: 1, condition: 3, education: ba, fromAmazon: 0, gender: female, motherTongue: ot, workerID: Madel', icon2], ['42.6442', '-73.2463', 'age: 20, categoryID: 1, condition: 3, education: sc, fromAmazon: 0, gender: male, motherTongue: en, workerID: Owen', icon2], ['51.5142', '-0.0931', 'age: 39, categoryID: 1, condition: 3, education: ba, fromAmazon: 0, gender: male, motherTongue: en, workerID: Adam', icon2], ['-31.3438', '-64.3353', 'age: 26, categoryID: 1, condition: 3, education: ba, fromAmazon: 0, gender: female, motherTongue: sp, workerID: Noe', icon2], ['47.5333', '21.6333', 'age: 18, categoryID: 1, condition: 3, education: dnchs, fromAmazon: 0, gender: female, motherTongue: ot, workerID: suzie', icon2], ['44.5924', '-75.1060', 'age: 20, categoryID: 1, condition: 3, education: sc, fromAmazon: 0, gender: female, motherTongue: ot, workerID: N/A', icon2], ['40.8006', '-73.9653', 'age: 21, categoryID: 1, condition: 3, education: ba, fromAmazon: 0, gender: female, motherTongue: ot, workerID: Tine', icon2], ['52.3000', '-1.5333', 'age: 20, categoryID: 1, condition: 3, education: ba, fromAmazon: 0, gender: male, motherTongue: en, workerID: Sam', icon2], ['42.2668', '-83.8562', 'age: 23, categoryID: 1, condition: 3, education: sc, fromAmazon: 0, gender: female, motherTongue: sp, workerID: Lucia', icon2], ['48.2833', '15.9000', 'age: 43, categoryID: 1, condition: 3, education: ma, fromAmazon: 0, gender: female, motherTongue: ot, workerID: Katz', icon2], ['31.5000', '34.7500', 'age: 50, categoryID: 1, condition: 3, education: ma, fromAmazon: 0, gender: female, motherTongue: ot, workerID: dolly', icon2], ['42.3646', '-71.1028', 'age: 20, categoryID: 1, condition: 3, education: ba, fromAmazon: 0, gender: female, motherTongue: ot, workerID: Gargee', icon2], ['51.5142', '-0.0931', 'age: 37, categoryID: 1, condition: 3, education: ba, fromAmazon: 0, gender: female, motherTongue: ot, workerID: Natasha', icon2], ['33.3346', '-111.9329', 'age: 22, categoryID: 1, condition: 3, education: sc, fromAmazon: 0, gender: female, motherTongue: en, workerID: Jordyn', icon2], ['51.4365', '-0.1191', 'age: 32, categoryID: 1, condition: 3, education: ma, fromAmazon: 0, gender: female, motherTongue: sp, workerID: a.', icon2], ['-34.5243', '-58.4830', 'age: 48, categoryID: 1, condition: 3, education: sc, fromAmazon: 0, gender: female, motherTongue: sp, workerID: chucky', icon2], ['41.7599', '-73.7437', 'age: 23, categoryID: 1, condition: 3, education: sc, fromAmazon: 0, gender: male, motherTongue: sp, workerID: Carlos', icon2], ['1.2931', '103.8558', 'age: 18, categoryID: 1, condition: 3, education: hs, fromAmazon: 0, gender: female, motherTongue: ot, workerID: Suni', icon2], ['50.8316', '-0.1341', 'age: 20, categoryID: 1, condition: 3, education: ba, fromAmazon: 0, gender: female, motherTongue: ot, workerID: Mal', icon2], ['40.4086', '-3.6922', 'age: 21, categoryID: 1, condition: 3, education: hs, fromAmazon: 0, gender: female, motherTongue: sp, workerID: maite', icon2], ['51.5000', '-0.1300', 'age: 26, categoryID: 1, condition: 3, education: ba, fromAmazon: 0, gender: male, motherTongue: ot, workerID: Diego', icon2], ['51.5142', '-0.0931', 'age: 21, categoryID: 1, condition: 3, education: ma, fromAmazon: 0, gender: male, motherTongue: ot, workerID: Rhod', icon2], ['24.4667', '54.3667', 'age: 22, categoryID: 1, condition: 3, education: sc, fromAmazon: 0, gender: female, motherTongue: en, workerID: Meeks', icon2], ['52.0167', '0.2500', 'age: 21, categoryID: 1, condition: 3, education: ba, fromAmazon: 0, gender: female, motherTongue: en, workerID: Renata', icon2], ['35.6850', '139.7514', 'age: 21, categoryID: 1, condition: 3, education: sc, fromAmazon: 0, gender: female, motherTongue: en, workerID: Row', icon2]];
+             var map = new Map('map',map_points,1.757537,144.492188,2);
+        
+
+           map.gmap.addControl(new GMapTypeControl());
+
+           map.gmap.addControl(new GSmallMapControl());
+
+
+            }
+        }
+        //]]>
+        </script>
+        
+        
+        
+        </head>
+        
+        <body onload="load()" onunload="GUnload()">
+        <div id="map" style="width: 1000px; height: 700px"></div>
+        </body>
+        </html>
+        

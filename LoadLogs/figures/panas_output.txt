@@ -1,0 +1,32 @@
+pydev debugger: starting
+AT08BVQ9LQA42, category narrow, error in reading the game log!
+91 valid logs out of 178
+defaultdict(<type 'int'>, {'mt': 10, 'game': 65, 'clicks': 37, 'rumi': 5})
+
+positive
+control(7.90476, std=1.97375 #21) < wide(9.46667, std=2.94090 #15) (p=0.0727)
+control(7.90476, std=1.97375 #21) < narrow(8.10000, std=1.81384 #30) (p=0.7222)
+control(7.90476, std=1.97375 #21) < control2(7.96000, std=1.77719 #25) (p=0.9227)
+wide(9.46667, std=2.94090 #15) > narrow(8.10000, std=1.81384 #30) (p=0.0676)
+wide(9.46667, std=2.94090 #15) > control2(7.96000, std=1.77719 #25) (p=0.0563)
+narrow(8.10000, std=1.81384 #30) > control2(7.96000, std=1.77719 #25) (p=0.7788)
+
+negative
+control(15.71429, std=2.74544 #21) < wide(16.06667, std=3.08689 #15) (p=0.7283)
+control(15.71429, std=2.74544 #21) > narrow(15.33333, std=3.20763 #30) (p=0.6664)
+control(15.71429, std=2.74544 #21) < control2(16.60000, std=2.97993 #25) (p=0.3143)
+wide(16.06667, std=3.08689 #15) > narrow(15.33333, std=3.20763 #30) (p=0.4781)
+wide(16.06667, std=3.08689 #15) < control2(16.60000, std=2.97993 #25) (p=0.6013)
+narrow(15.33333, std=3.20763 #30) < control2(16.60000, std=2.97993 #25) (p=0.1453)
+
+
+all
+control(23.61905, std=3.59200 #21) < wide(25.53333, std=5.17515 #15) (p=0.2116)
+control(23.61905, std=3.59200 #21) > narrow(23.43333, std=4.37175 #30) (p=0.8757)
+control(23.61905, std=3.59200 #21) < control2(24.56000, std=4.14806 #25) (p=0.4301)
+wide(25.53333, std=5.17515 #15) > narrow(23.43333, std=4.37175 #30) (p=0.1703)
+wide(25.53333, std=5.17515 #15) > control2(24.56000, std=4.14806 #25) (p=0.5280)
+narrow(23.43333, std=4.37175 #30) < control2(24.56000, std=4.14806 #25) (p=0.3433)
+
+finish
+

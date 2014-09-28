@@ -1,0 +1,110 @@
+<html>
+<head>
+   <script src="js/jquery.min.js"></script>	
+	<script src="js/underscore-min.js"></script>
+	<script src="js/validatious.min.js"></script>  
+	<script src="demographic.js"></script>
+	<link rel="stylesheet" type="text/css" href="displaywords.css">
+	
+	<!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-theme.css" rel="stylesheet">
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/bootstrap.js"></script>
+
+
+    <style type="text/css">
+      ul.messages {
+        list-style-type: none;
+        padding: 0;
+        margin: 15px 0 0 0;
+      }
+
+      .error ul.messages li {
+        color: red;
+        padding: 0;
+        margin: 0;
+      }
+	
+	.center_div {
+	    position: absolute;
+	    top: 15%;
+	    left: 50%;
+	    margin-top: 0px;
+	    margin-left: -300px;
+	    width: 1000px;
+	    height: 400px;
+	},	
+	
+	</style>
+</head>
+<body>
+
+<div id="demographic_div" class="center_div">
+<h2>Please answer some basic questions about yourself</h2>
+<form id="demographic_form" action="/postDemographic/" class="validate" method="post">
+  <div class="control-group">
+    <label for="genderInput">What is your gender?</label>
+      <label for="genderRB1" class="radio">
+        <input id="genderRB1" type="radio" name="gender" value="male" class='required' title="you must choose one!">Male
+      </label>
+      <label for="genderRB2" class="radio">
+        <input id="genderRB2" type="radio" name="gender" value="female" >Female
+      </label>
+  </div>
+  <br>
+
+  <div class="control-group">
+    <label class="control-label" for="ageInput">What is your age?</label>
+      <div class="controls">
+        <input type="text" id="ageInput" name='age' class='required min-val_17, required numeric' title="you must be 18 or above!">
+      </div>
+  </div>
+  <br>
+    
+		
+  <div class="control-group">
+    <label class="control-label" for="education">Which of the following best describes your highest achieved education level?</label>
+      <div class="controls">
+      	<select id="educationSelect" class="required" name="education" title="you must choose one!">
+      	    <option value="">Select an item from the list</option>
+	        <option value="dnchs">Did Not Complete High School</option>
+	        <option value="hs">High School</option>
+	        <option value="sc">Some College</option>
+	        <option value="ba">Bachelor's Degree</option>
+	        <option value="ma">Master's Degree</option>
+	        <option value="phd">Ph.D.</option>
+	        <option value="ot">Other</option>
+        </select>       
+      </div>
+  </div>
+  <br> 
+  <div class="control-group">
+    <label class="control-label" for="tongue">What is your mother tongue?</label>
+      <div class="controls">
+      	<select id="tongueSelect" class="required" name="motherTongue" title="you must choose one!">
+      	    <option value="">Select an item from the list</option>
+	        <option value="en">English</option>
+	        <option value="sp">Spanish</option>
+	        <option value="fr">French</option>
+	        <option value="ot">Other</option>
+        </select>      
+      </div>
+  </div>
+  <br>
+  
+  <div class="control-group">
+  	<label for="worker_id_label" id="worker_id_label">Name or Nickname</label> 
+	<div class="controls">
+ 		<input type="hidden" name="workerID" id="workerID" value="" class="required" title="you must enter a name" />
+ 	</div>
+ </div>
+
+<br>
+
+<button type="submit" class="btn btn-primary">Continue</button>
+
+ </form>
+</div>
+</body>
+</html>

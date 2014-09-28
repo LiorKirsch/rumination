@@ -1,0 +1,5 @@
+*~
+*.pyc
+*.vw
+*.cache
+*.lprof

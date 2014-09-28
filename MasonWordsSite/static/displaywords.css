@@ -1,0 +1,14 @@
+.center_div{
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    margin-top: 0px;
+    margin-left: -750px;
+    width: 1500px;
+    height: 400px;
+},
+
+
+.bigtext {
+    font-family: Puritan;
+}

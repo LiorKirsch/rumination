@@ -1,0 +1,29 @@
+.center_div {
+   	position: absolute;
+  		top: 10%;
+ 	  	left: 50%;
+  		margin-top: 10px;
+ 		margin-left: -400px;
+   	width: 1000px;
+   	height: 400px;
+}
+
+.arrow_img {
+	width: 20px; 
+	height: 15px;
+}
+          
+.word_input { 
+	text-align:center; 
+	width: 150px;
+}
+
+.warning { 
+	text-align:center; 
+	width: 780px;
+	color: red;
+}
+
+.form-control {
+	width: 300px;
+}
