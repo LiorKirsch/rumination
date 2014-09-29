@@ -202,7 +202,7 @@ function legalWord(word) {
 }
 
 function createArrow(div,id) {
-	$('<span class="glyphicon glyphicon-arrow-right"></span> ').appendTo( $(div) );;
+	$('<span class="glyphicon glyphicon-arrow-right arrow_img"></span> ').appendTo( $(div) );;
 //	$('<img class="arrow_img" src="pics/arrow.png">').attr('id', id).appendTo( $(div) );
 	//createImage(div, id, 'pics/arrow.png', 'arrow_img')
 }

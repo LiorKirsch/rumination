@@ -11,6 +11,9 @@
 .arrow_img {
 	width: 20px; 
 	height: 15px;
+	text-align:center; 
+	margin: 10px;
+
 }
           
 .word_input, .word_shown, .time_input{ 
@@ -26,8 +29,4 @@
 
 .form-control {
 	width: 300px;
-}
-
-.glyphicon-arrow-right {
-	margin: 10px;
 }
