@@ -16,7 +16,7 @@
 
 }
           
-.word_input, .word_shown, .time_input{ 
+.word_input, .word_shown, .time_input, .blank_text{ 
 	text-align:center; 
 	width: 150px;
 }

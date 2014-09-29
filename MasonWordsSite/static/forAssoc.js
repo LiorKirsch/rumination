@@ -76,6 +76,7 @@ function createFAT() {
 		wdiv.id = 'chain' + chain_index + '_div';
 		wdiv.className = 'words-chain';
 		var inp = document.createElement('input');
+		$('<input class="blank_text" readonly="readonly" disabled="disabled" type="text">').attr('id','chain' + chain_index + '_wx').hide().appendTo($(wdiv));
 		$('<input class="word_shown" readonly="readonly" type="text">').attr('id','chain' + chain_index + '_w0').attr('value', current_list_of_words[0] ).appendTo($(wdiv));
 
 		createArrow(wdiv,'arrow' + chain_index + '_w0')
@@ -191,6 +192,12 @@ function legalWords() {
 			setWarningLabel(word + " isn't a valid English word");
 			setFocusOnWord(word_index);
 			isLegal=false;
+		}
+		
+		if (isLegal) {
+			$('#chain' + current_chain + '_w' + current_word).attr('readonly','readonly').attr('disabled','disabled');
+			$('#chain' + current_chain + '_w0').hide();
+			$('#chain' + current_chain + '_wx').show();
 		}
 	}
 	return isLegal;
