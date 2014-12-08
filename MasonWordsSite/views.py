@@ -241,13 +241,38 @@ def get_words(request):
     if (data):
         categoryID = request.session['data']['wordsCategory'] # request.session['data']['categoryID']
         file_name = os.path.join(settings.STATIC_ROOT, 'bag_of_words','%s.csv' % categoryID)
-        words = getWordsListsFromFile(file_name,wordsInChain)
-        words = words.reshape((chainsNum,words.size/chainsNum))
+        words = getWordsListsFromFile(file_name, wordsInChain)
+        words = words.reshape((chainsNum, words.size/chainsNum))
         words = shuffle(words)
     else:
         words = []
-            
     jsonResponse = sendObjectAsJson(words.tolist())
+    return jsonResponse
+
+@never_cache
+def getAssocs(request):
+    assocsFileName = os.path.join(settings.STATIC_ROOT, 'bag_of_words','words_strong_weak_assoc.pkl')
+    ret = []
+    data = request.session.get('data', None)
+    if (data):
+        categoryID = request.session['data']['wordsCategory']
+    else:
+        categoryID = '1'
+
+    with open(assocsFileName, 'r') as assFile:
+        retAss = pickle.load(assFile)
+        # shuffle
+        words = retAss.keys()
+        random.shuffle(words)
+        for word in words:
+            if (categoryID == '1'):
+                random.shuffle(retAss[word]['strong'])
+                ret.append((word, retAss[word]['strong']))
+            elif (categoryID == '2'):
+                random.shuffle(retAss[word]['weak'])
+                ret.append((word, retAss[word]['weak']))
+
+    jsonResponse = sendObjectAsJson(ret)
     return jsonResponse
 
 def getSelctionWords(request, categoryID):
@@ -288,16 +313,17 @@ def sendObjectAsJson(myObjectDict):
     resp = HttpResponse(data, content_type='application/json')
     resp['Access-Control-Allow-Headers'] = '*'
     return resp
-    
-    
+
+
 def get_client_ip(request):
     x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
     if x_forwarded_for:
         ip = x_forwarded_for.split(',')[0]
     else:
         ip = request.META.get('REMOTE_ADDR')
-        
+
     return ip
+
 
 def nextPage(action=''):
 #     inspect.currentframe().f_code.co_name
@@ -306,6 +332,7 @@ def nextPage(action=''):
         return HttpResponseRedirect(POST_URLS[callerName])
     else:
         return HttpResponseRedirect(POST_URLS[callerName][action])
+
 
 def errorPage():
     callerName = inspect.currentframe().f_back.f_code.co_name

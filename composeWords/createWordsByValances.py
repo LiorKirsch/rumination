@@ -66,7 +66,7 @@ def getAllLineInTheSameCategory(masonTable, anewDict, category):
     for line in masonTable:
         if (len(line)<WORDS_IN_LIST): continue
         valances = [anewDict.get(word,np.nan) for word in line]
-        categories = [valanceValToName(val) for val in valances]   
+        categories = [valanceValToCategory(val) for val in valances]   
         
         if (categories[0]!=category): continue # Continue if the first word isn't form the current category
         newWordsIndices = []
@@ -81,7 +81,7 @@ def getAllLineInTheSameCategory(masonTable, anewDict, category):
 
         line = line[:WORDS_IN_LIST]
         valances = [getValance(anewDict,word) for word in line]
-        categories = [valanceValToName(val) for val in valances]   
+        categories = [valanceValToCategory(val) for val in valances]   
         
         count = Counter(categories)
         falseCategories = sum([count[cat] for cat in CATEGORIES-set([category])])
@@ -105,7 +105,7 @@ def windowsGenerator(line,windowLength=12):
     windowsNum=len(line)-windowLength+1
     if (windowsNum>0):
         valances = [getValance(anewDict,word) for word in line]
-        categories = [valanceValToName(val) for val in valances]   
+        categories = [valanceValToCategory(val) for val in valances]   
         for startIndex in xrange(windowsNum):
             yield (line[startIndex:startIndex+windowLength],valances[startIndex:startIndex+windowLength],
                    categories[startIndex:startIndex+windowLength])
@@ -124,7 +124,7 @@ def getBroadAssociativeChains(masonTable, anewDict, category):
     L = masonTable.shape[0]
     
 
-def valanceValToName(val):
+def valanceValToCategory(val):
     if (np.isnan(val)):
         return CATEGORY_UNDEFINED
     else:

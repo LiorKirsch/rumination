@@ -1,13 +1,12 @@
-FREE_ASS_QUES_NUM = 5;
+FREE_ASS_QUES_NUM = 20;
 FREE_ASS_OPT_NUM = 1;
 
 var current_chain=1;
 var current_word=1;
 var timerId;
 var first;
-var list_of_words;
+var assocs;
 
-var words = ['dog','cat','mouse','chair','table'];
 var WORDS_ZIP_URL = '/get_english_dict/'
 var wordsDic;
 var blockKeyPress=false;
@@ -21,8 +20,8 @@ $( document ).ready(function() {
 });
 
 function getWords() {
-	$.getJSON( "/getSelctionWords/1", function( data ) {
-  		list_of_words = data;
+	$.getJSON( "/getAssocs/", function( data ) {
+  		assocs = data;
   		if (data.length==0) {
   			goToErrorPage();
   		}
@@ -71,13 +70,13 @@ function timerMethod() {
 function createFAT() {
 	var formElm = document.getElementById('fat_form');
 	for (var chain_index=1;chain_index<=FREE_ASS_QUES_NUM;chain_index++) {
-		var current_list_of_words = list_of_words[chain_index];
+		var current_ass = assocs[chain_index];
 		var wdiv = document.createElement('div');
 		wdiv.id = 'chain' + chain_index + '_div';
 		wdiv.className = 'words-chain';
 		var inp = document.createElement('input');
 		$('<input class="blank_text" readonly="readonly" disabled="disabled" type="text">').attr('id','chain' + chain_index + '_wx').hide().appendTo($(wdiv));
-		$('<input class="word_shown" readonly="readonly" type="text">').attr('id','chain' + chain_index + '_w0').attr('value', current_list_of_words[0] ).appendTo($(wdiv));
+		$('<input class="word_shown" readonly="readonly" type="text">').attr('id','chain' + chain_index + '_w0').attr('value', current_ass[0] ).appendTo($(wdiv));
 
 		createArrow(wdiv,'arrow' + chain_index + '_w0')
 		for (var word_index=1; word_index<=FREE_ASS_OPT_NUM; word_index++) {
@@ -91,8 +90,8 @@ function createFAT() {
 		
 		var selection = $('<select>').attr('id','sel' + chain_index).attr('class','selectpicker').hide().append($('<option value="" disabled selected>Select the closest word</option>'));
 		var tmp_word;
-		for (word_index = 1; word_index < current_list_of_words.length; ++word_index) {
-		    selection.append( $('<option>').text( current_list_of_words[word_index] ).val(current_list_of_words[word_index]) )
+		for (word_index = 1; word_index < current_ass.length; ++word_index) {
+		    selection.append( $('<option>').text( current_ass[word_index] ).val(current_ass[word_index]) )
 		}
 		$(wdiv).append(selection);
 
@@ -316,7 +315,7 @@ function saveToJSON() {
     jsonObj = [];
     $("div[class=words-chain]").each(function() {
     	var chain = {};
-   	chain["words"] = [];
+    	chain["words"] = [];
     	chain["times"] = [];
 	$(this).find(".word_shown").each(function() { 
 	        chain["words"].push($(this).val());
